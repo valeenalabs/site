@@ -6,7 +6,7 @@ import { cn } from "../../lib/cn";
 import { TreeContextProvider, useTreeContext } from "fumadocs-ui/contexts/tree";
 import Link from "fumadocs-core/link";
 import { useSearchContext } from "fumadocs-ui/contexts/search";
-import { useSidebar } from "fumadocs-ui/contexts/sidebar";
+import { useSidebar } from "fumadocs-ui/components/sidebar/base";
 import { usePathname } from "fumadocs-core/framework";
 import {
   Search,
