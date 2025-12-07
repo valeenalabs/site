@@ -36,6 +36,9 @@ const { provider } = defineI18nUI(i18n, {
     "tr-TR": {
       displayName: "Türkçe",
     },
+    "ar-SA": {
+      displayName: "العربية",
+    },
   },
 });
 
