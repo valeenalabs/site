@@ -11,12 +11,17 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel";
-import WulfrumProsthesis from "./(showcaseImages)/wulfrum_prosthesis.png";
-import DragonFlyMount from "./(showcaseImages)/dragonfly_mount.gif";
 import Image, { StaticImageData } from "next/image";
 import { DiscordButton } from "./discord-button";
 import { useEffect, useState } from "react";
 import Autoplay from "embla-carousel-autoplay";
+
+import WulfrumProsthesis from "./(showcaseImages)/wulfrum_prosthesis.png";
+import DragonFlyMount from "./(showcaseImages)/dragonfly_mount.gif";
+import Melodium from "./(showcaseImages)/Melodium.gif";
+import GaleWivern from "./(showcaseImages)/gale_wivern.gif";
+import WulfrumArmor from "./(showcaseImages)/Wulfrum_Armor.gif";
+
 
 interface CarouselItem {
   title: string;
@@ -35,27 +40,27 @@ export default function HomePage() {
       link: "",
     },
     {
-      title: "Hylamity: Wulfrum Prosthesis",
+      title: "[WIP] Hylamity: Wulfrum Prosthesis",
       author: "by alder_",
       image: WulfrumProsthesis,
       link: "",
     },
     {
-      title: "Hylamity: Wulfrum Prosthesis",
-      author: "by alder_",
-      image: WulfrumProsthesis,
+      title: "[WIP] Soundscape: Melodium Chunk",
+      author: "by 44Hydras",
+      image: Melodium,
       link: "",
     },
     {
-      title: "Hylamity: Wulfrum Prosthesis",
-      author: "by alder_",
-      image: WulfrumProsthesis,
+      title: "Gale Wivern",
+      author: "by Nicolas | Tourne_Vis",
+      image: GaleWivern,
       link: "",
     },
     {
-      title: "Hylamity: Wulfrum Prosthesis",
+      title: "[WIP] Hylamity: Wulfrum Armor",
       author: "by alder_",
-      image: WulfrumProsthesis,
+      image: WulfrumArmor,
       link: "",
     },
   ];
