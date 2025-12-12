@@ -1,96 +1,171 @@
 "use client";
-import { Users, BookOpen, ExternalLinkIcon } from "lucide-react";
-import Link from "next/link";
-import { branch, commit } from "@/git-info.json";
+import { ExternalLinkIcon, BookIcon } from "lucide-react";
+import { FlipWords } from "@/components/ui/flip-words";
+import { Spotlight } from "@/components/ui/spotlight-new";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
+import Image, { StaticImageData } from "next/image";
+import { useEffect, useState, use } from "react";
+import Autoplay from "embla-carousel-autoplay";
 import { localizeHref } from "@/lib/locale";
-import { useMessages } from "@/lib/hooks/useMessages";
+import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useMessages } from "@/lib/hooks/useMessages";
+import { branch, commit } from "@/git-info.json";
+
+import WulfrumProsthesis from "./(showcaseImages)/wulfrum_prosthesis.png";
+import DragonFlyMount from "./(showcaseImages)/dragonfly_mount.gif";
+import Melodium from "./(showcaseImages)/Melodium.gif";
+import GaleWivern from "./(showcaseImages)/gale_wivern.gif";
+import WulfrumArmor from "./(showcaseImages)/Wulfrum_Armor.gif";
+import { DiscordButton } from "./discord-button";
+import { GitInfoButton } from "@/components/git-info-button";
+
+interface CarouselItem {
+  title: string;
+  author: string;
+  image: StaticImageData;
+  link: string;
+}
 
 export default function HomePage() {
   const params = useParams();
   const messages = useMessages();
+  const [isMobile, setIsMobile] = useState(false);
+  const carouselItems: CarouselItem[] = [
+    {
+      title: "Dragonfly Mount",
+      author: "by Nicolas | Tourne_Vis",
+      image: DragonFlyMount,
+      link: "https://x.com/TourneVis_MC",
+    },
+    {
+      title: "[WIP] Hylamity: Wulfrum Prosthesis",
+      author: "by alder_",
+      image: WulfrumProsthesis,
+      link: "https://discord.com/users/282986835293241345",
+    },
+    {
+      title: "[WIP] Soundscape: Melodium Chunk",
+      author: "by 44Hydras",
+      image: Melodium,
+      link: "https://discord.com/users/197065442479702016",
+    },
+    {
+      title: "Gale Wivern",
+      author: "by Nicolas | Tourne_Vis",
+      image: GaleWivern,
+      link: "https://x.com/TourneVis_MC",
+    },
+    {
+      title: "[WIP] Hylamity: Wulfrum Armor",
+      author: "by alder_",
+      image: WulfrumArmor,
+      link: "https://discord.com/users/282986835293241345",
+    },
+  ];
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <div className="font-grotesk relative flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center overflow-hidden px-4">
-      <a
-        href={`https://github.com/HytaleModding/site/tree/${branch}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="absolute right-4 bottom-4 z-10 flex cursor-pointer items-center gap-2 rounded-md border border-slate-300 bg-slate-100 px-3 py-1.5 font-mono text-xs transition-colors duration-150 hover:bg-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700"
-      >
-        <div className="flex items-center gap-1.5">
-          <ExternalLinkIcon className="size-4" />
-          <span className="font-medium text-slate-700 dark:text-slate-300">
-            {branch}
-          </span>
+    <div className="relative flex flex-1 overflow-hidden">
+      <GitInfoButton />
+      <Spotlight />
+      <div className="container mx-auto flex flex-1 flex-col gap-8 px-12 py-8 lg:flex-row items-center lg:justify-between lg:py-0">
+        <div className="max-lg:max-w-lg space-y-6 max-lg:py-32 max-w-xl max-lg:text-center">
+          <h1 className="text-4xl font-semibold text-balance">
+            {messages.home.title}
+            <FlipWords words={messages.home.flipwords} />
+          </h1>
+          <h2 className="text-muted-foreground text-lg text-balance">
+            {messages.home.description}
+          </h2>
+          <div className="flex flex-wrap gap-4 max-lg:justify-center">
+            <Button asChild>
+              <Link href={localizeHref("/docs", params.lang?.toString())}>
+                <BookIcon /> {messages.home.documentation}
+              </Link>
+            </Button>
+            <DiscordButton />
+          </div>
         </div>
-        <span className="text-slate-400 dark:text-slate-500">@</span>
-        <span className="text-slate-600 dark:text-slate-400">{commit}</span>
-      </a>
 
-      <div
-        className="pointer-events-none absolute top-0 left-0 z-0 hidden h-full w-full bg-[#cd7f32] xl:block"
-        style={{
-          clipPath: "polygon(0 0, 32% 0, 16% 100%, 0% 100%)",
-        }}
-      />
-      <div className="absolute inset-0 -z-10" />
-      <div className="relative mx-auto max-w-3xl space-y-6 text-center">
-        <div className="inline-flex items-center gap-2">
-          <Users className="h-4 w-4 text-slate-600 dark:text-slate-400" />
-          <span className="font-azeret text-sm font-medium text-slate-600 dark:text-slate-400">
-            {messages.home.community}
-          </span>
-        </div>
-        <h1 className="bg-gradient-to-b from-slate-500 to-slate-900 bg-clip-text p-2 text-6xl font-bold font-medium tracking-wide text-transparent md:text-7xl dark:from-slate-100 dark:to-slate-400">
-          {messages.home.title}
-        </h1>
-        <div className="mx-auto h-1 w-64 rounded-sm bg-orange-300" />
-        <p className="mx-auto max-w-2xl p-2 text-lg leading-relaxed font-light text-slate-600 md:text-xl dark:text-slate-400">
-          {messages.home.welcome}
-          <span className="font-bold"> {messages.home.welcomeDescription}</span>
-        </p>
-        <div className="flex flex-col items-center justify-center gap-4">
-          <Link
-            href={localizeHref("/docs", params.lang?.toString())}
-            className={`inline-flex items-center gap-3 rounded-md bg-[#f3e1c9] px-4 py-2 text-base text-[#a15b00] transition-colors duration-150 ease-in-out hover:bg-[#e4c99d] focus:bg-[#e4c99d] focus:outline-none md:text-lg dark:bg-[#422914] dark:text-[#FFC478] dark:hover:bg-[#5b361a] dark:focus:bg-[#5b361a]`}
+        <div className="relative w-full flex-1 lg:max-w-2xl">
+          <Carousel
+            opts={{
+              align: "center",
+            }}
+            orientation={isMobile ? "horizontal" : "vertical"}
+            className="w-full"
+            plugins={[
+              Autoplay({
+                delay: 2000,
+              }),
+            ]}
           >
-            <BookOpen className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5" />
-            <span className="text-base md:text-lg">
-              {messages.home.documentation}
-            </span>
-          </Link>
-
-          <a
-            href="https://discord.gg/54WX832HBM"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`inline-flex items-center gap-2 rounded-md bg-[#e8ecfb] px-4 py-2 text-base text-[#254194] transition-colors duration-150 ease-in-out hover:bg-[#d0daf1] focus:bg-[#d0daf1] focus:outline-none md:text-lg dark:bg-[#2B2D4B] dark:text-[#81A0BE] dark:hover:bg-[#3a3d67] dark:focus:bg-[#3a3d67]`}
-          >
-            {/* Discord Icon */}
-            <svg
-              width="3em"
-              height="3em"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 transition-transform duration-300 group-hover:-translate-y-0.5"
-            >
-              <path
-                d="M18.8943 4.34399C17.5183 3.71467 16.057 3.256 14.5317 3C14.3396 3.33067 14.1263 3.77866 13.977 4.13067C12.3546 3.89599 10.7439 3.89599 9.14391 4.13067C8.99457 3.77866 8.77056 3.33067 8.58922 3C7.05325 3.256 5.59191 3.71467 4.22552 4.34399C1.46286 8.41865 0.716188 12.3973 1.08952 16.3226C2.92418 17.6559 4.69486 18.4666 6.4346 19C6.86126 18.424 7.24527 17.8053 7.57594 17.1546C6.9466 16.92 6.34927 16.632 5.77327 16.2906C5.9226 16.184 6.07194 16.0667 6.21061 15.9493C9.68793 17.5387 13.4543 17.5387 16.889 15.9493C17.0383 16.0667 17.177 16.184 17.3263 16.2906C16.7503 16.632 16.153 16.92 15.5236 17.1546C15.8543 17.8053 16.2383 18.424 16.665 19C18.4036 18.4666 20.185 17.6559 22.01 16.3226C22.4687 11.7787 21.2836 7.83202 18.8943 4.34399ZM8.05593 13.9013C7.01058 13.9013 6.15725 12.952 6.15725 11.7893C6.15725 10.6267 6.98925 9.67731 8.05593 9.67731C9.11191 9.67731 9.97588 10.6267 9.95454 11.7893C9.95454 12.952 9.11191 13.9013 8.05593 13.9013ZM15.065 13.9013C14.0196 13.9013 13.1652 12.952 13.1652 11.7893C13.1652 10.6267 13.9983 9.67731 15.065 9.67731C16.121 9.67731 16.985 10.6267 16.9636 11.7893C16.9636 12.952 16.1317 13.9013 15.065 13.9013Z"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <span className="text-base md:text-lg">
-              {messages.home.discord}
-            </span>
-          </a>
+            <CarouselContent className="-mt-1 h-96">
+              {carouselItems.map((item, index) => (
+                <CarouselItem key={index} className="pt-1 lg:basis-2">
+                  <div className="p-1">
+                    <Card className="relative overflow-hidden">
+                      <CardContent className="flex h-72 items-center justify-center p-6">
+                        <div className="from-card absolute z-20 flex size-full items-end bg-linear-to-t from-15% to-transparent to-30% p-6">
+                          <div className="flex flex-1 flex-col">
+                            <h1 className="z-20 text-2xl font-bold">
+                              {item.title}
+                            </h1>
+                            <h2 className="text-muted-foreground text-md z-20">
+                              {item.author}
+                            </h2>
+                          </div>
+                          <Button size="icon-lg" asChild>
+                            <Link
+                              href={item.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <ExternalLinkIcon />
+                            </Link>
+                          </Button>
+                        </div>
+                        <Image
+                          src={item.image}
+                          alt="test image"
+                          className="absolute size-full object-cover opacity-30 blur-md"
+                        />
+                        <div className="z-10 flex size-full items-center justify-center">
+                          <Image
+                            src={item.image}
+                            alt="test image"
+                            className="h-full w-auto overflow-hidden rounded-md object-contain"
+                          />
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious alternativePosition />
+            <CarouselNext alternativePosition />
+          </Carousel>
         </div>
-      </div>
-      {/* Copyright Footer */}
-      <div className="absolute bottom-4 left-4 z-10 text-xs text-slate-900 dark:text-slate-900">
-        © {new Date().getFullYear()} Hytale Modding
       </div>
     </div>
   );

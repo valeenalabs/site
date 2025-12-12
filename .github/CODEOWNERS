@@ -1,10 +1,15 @@
 * @ItsNeil17
 
 # Guides
-/content/docs/en/guides/* @ItsNeil17 @okunamayand @bencres
+/content/docs/en/guides/* @ItsNeil17 @okunamayanad @bencres
 
 # Community Projects
 /content/docs/en/projects/hylamity.mdx @Azathoth-Github
 /content/docs/en/projects/kytale.mdx @oglassdev
 /content/docs/en/projects/hyperions.mdx @maemachinebroke
 /content/docs/en/projects/transfer-api.mdx @shailist
+
+# Website
+
+/src/app/\[lang\]/(home)/* @ItsNeil17 @okunamayanad
+/src/app/components/* @okunamayanad

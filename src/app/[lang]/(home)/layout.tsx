@@ -19,7 +19,9 @@ export default async function Layout({
   const { lang } = await params;
   return (
     <ViewTransition update="none">
-      <HomeLayout {...baseOptions(lang)}>{children}</HomeLayout>
+      <HomeLayout {...baseOptions(lang)} className="min-h-screen flex flex-col">
+        {children}
+      </HomeLayout>
     </ViewTransition>
   );
 }
