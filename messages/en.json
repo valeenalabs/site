@@ -5,7 +5,7 @@
   },
 
   "home": {
-    "title": "#1 Resource for Hytale Modding",
+    "title": "#1 Resource for Hytale Modding {flipwords}",
     "flipwords": ["Guides", "Documentation", "Resources"],
     "description": "The number one community resource for modding Hytale, featuring\ncomprehensive guides, detailed documentation, and essential tools to\nkickstart your modding journey.",
     "documentation": "Docs",
