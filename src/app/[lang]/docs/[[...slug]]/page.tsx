@@ -12,8 +12,8 @@ import type { Metadata } from "next";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import { branch } from "@/git-info.json";
 import { ViewTransition } from "react";
-import { getGithubLastEdit } from 'fumadocs-core/content/github';
 import Link from "next/link";
+import { ogLanguageBlacklist } from "@/lib/i18n";
 
 export default async function Page(
   props: PageProps<"/[lang]/docs/[[...slug]]">,
@@ -99,11 +99,26 @@ export async function generateMetadata(
   const page = source.getPage(params.slug, params.lang);
   if (!page) notFound();
 
-  return {
-    title: page.data.title,
-    description: page.data.description,
-    // openGraph: {
-    //   images: getPageImage(page).url,
-    // },
-  };
+  const slug = params.slug || [];
+  const imageUrl = `/api/og/docs/${params.lang}${slug.length > 0 ? "/" + slug.join("/") : ""}`;
+
+  if (ogLanguageBlacklist.includes(params.lang))
+    return {
+      title: page.data.title,
+      description: page.data.description,
+    };
+  else
+    return {
+      title: page.data.title,
+      description: page.data.description,
+      openGraph: {
+        images: [
+          {
+            url: imageUrl,
+            width: 1200,
+            height: 630,
+          },
+        ],
+      },
+    };
 }

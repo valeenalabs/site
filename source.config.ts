@@ -7,12 +7,14 @@ import {
 import { z } from "zod";
 
 const extendedSchema = frontmatterSchema.extend({
-  authors: z.array(
-    z.object({
-      name: z.string(),
-      url: z.string().url().optional(),
-    })
-  ).optional(),
+  authors: z
+    .array(
+      z.object({
+        name: z.string(),
+        url: z.string().url().optional(),
+      }),
+    )
+    .optional(),
 });
 
 export const docs = defineDocs({
@@ -34,8 +36,8 @@ export default defineConfig({
       langs: ["java"],
       themes: {
         light: "light-plus",
-        dark: "github-dark"
-      }
-    }
-  }
+        dark: "github-dark",
+      },
+    },
+  },
 });

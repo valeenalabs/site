@@ -24,3 +24,6 @@ export const i18n = defineI18n({
   ],
   parser: "dir",
 });
+
+// see: https://github.com/vercel/next.js/issues/74897
+export const ogLanguageBlacklist = ["ar-SA"];

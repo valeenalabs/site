@@ -21,8 +21,8 @@ const config = {
       },
       {
         protocol: "https",
-        hostname: "cdn.internal.hytalemodding.dev"
-      }
+        hostname: "cdn.internal.hytalemodding.dev",
+      },
     ],
   },
   async redirects() {
