@@ -3,13 +3,13 @@ title: Personalização da IU
 description: Informações sobre a personalização da IU no Hytale.
 ---
 
-A Interface do Usuário pode ser personalizada por modificações feitas diretamente no lado do servidor. Grande parte das telas da interface do usuário, mostradas aos jogadores, pode ser modificada pelos donos de servidores através de mods.
+A interface do usuário pode ser personalizada por mods feitos diretamente no **lado do servidor**. Grande parte das telas da interface do usuário, mostradas aos jogadores, podem ser modificadas pelos donos de servidores através de mods.
 
 ## Personalização da IU no Hytale
 
-O Hytale oferece extensas capacidades de customização da interface do usuário através de modificações gerenciadas pelo servidor, permitindo que os donos de servidores modifiquem muitas das páginas da IU com as quais os jogadores interagem.
+O Hytale oferece extensas capacidades de personalização da interface do usuário através de mods gerenciados pelo servidor, permitindo que os donos de servidores modifiquem muitas das páginas da IU com as quais os jogadores interagem.
 
-### Controle de Fluxo
+### Controle de fluxo
 
 O sistema de IU do Hytale adota um padrão de fluxo de controle específico:
 
@@ -24,12 +24,9 @@ Essa arquitetura significa:
 * O cliente é responsável por renderizar a IU e enviar as interações do usuário para o servidor
 * O servidor lida com toda a lógica real por trás das interações do usuário
 
-<Callout type="warning" title="Possíveis Implicações de Desempenho">
+<Callout type="warning" title="Possíveis implicações no desempenho">
   <span>
-    Por conta do servidor lidar com toda a lógica da IU, isso resulta em um
-    impacto inevitável de latência na interatividade da IU. Os cliques de botões e outras interações precisam
-    passar até o servidor antes de terem efeito, o que significa que a latência da rede afeta diretamente
-    a capacidade de resposta da IU.
+    Como o servidor processa toda a lógica da interface, ocorre um impacto inevitável de latência na resposta aos comandos do usuário. Como os cliques e as interações dependem do processamento do servidor para serem validados, a latência da rede impacta diretamente a fluidez e a resposta da interface.
   </span>
 
   <span>
@@ -38,15 +35,15 @@ Essa arquitetura significa:
   </span>
 </Callout>
 
-### Recursos de Layout de UI
+### Recursos de modelo da interface
 
-O sistema de customização de UI do Hytale funciona através da seguinte estrutura:
+O sistema de personalização da interface do Hytale funciona através da seguinte estrutura:
 
-* **Layout da UI**: Enviado ao cliente como um recurso
+* **Modelo da IU**: enviado ao cliente como um recurso
 * **Comportamento da UI**: definido no código Java
 * **Layouts personalizados**: Permite a criação de layouts de UI sob medida ao invés de reaproveitar os existentes (como modificações no menu do Minecraft)
 
-### Implementações do Framework de UI
+### Implementações do framework para a IU
 
 Hytale atualmente suporta várias implementações da UI, com planos para consolidar no NoesisGUI:
 
@@ -57,16 +54,16 @@ Hytale atualmente suporta várias implementações da UI, com planos para consol
 * Utiliza uma linguagem de marcação personalizada legacy
 * Será descontinuado a favor do NoesisGUI
 
-#### NoesisGUI (Framework primária)
+#### NoesisGUI (framework principal)
 
-* Usa Linguagem de Marcação XAML para a definição da UI
-* Suporta várias línguas para internacionalização
-* Roda no C# bindings no lado do client (não C++)
+* Usa a linguagem de marcação XAML para a definição da IU
+* Compatível com várias linguagens para internacionalização
+* Executa bindings em C# no lado do cliente, não em C++
 * Representa a direção futura do sistema da UI do Hypixel
 
-#### Terceiro Framework
+#### Terceiro framework
 
-* Atualmente em fase de descontinuação.
+* Em processo de descontinuação
 * Será substituído por NoesisGUI como parte do esforço de consolidação
 
 ### Considerações de desempenho

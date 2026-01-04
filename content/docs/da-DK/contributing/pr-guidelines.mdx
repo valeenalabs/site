@@ -1,0 +1,39 @@
+---
+title: PR-retningslinjer
+description: Retningslinjer, som anmeldere og bidragsydere skal følge ved indsendelse og gennemgang af pull requests.
+---
+
+# Retningslinjer for pull requests
+
+For at sikre en blød og effektiv gennemgangsproces skal både bidragsydere og anmeldere overholde de følgende retningslinjer, når der indsendes og gennemgåes pull requests (PRs).
+
+## For bidragsydere
+
+1. **Beskrivende titler og beskrivelser**
+   - Brug klare og kortfattet titler der sammenfatter ændringerne.
+   - Giv detaljerede beskrivelser af, hvad PR'en gør, hvorfor ændringerne er nødvendige og eventuel relevant kontekst.
+2. **Link til issues**
+   - I din PR-titel skal du tilføje `GH-ISSUE-NUMBER` for at knytte PR'en til den relevante issue. Det er et krav for alle PRs.
+3. **Små, fokuserede ændringer**
+   - Aim to keep PRs small and focused on a single issue or feature. This makes it easier for reviewers to understand and provide feedback.
+4. **Code Quality**
+   - Ensure your code follows the project's coding standards and best practices.
+   - Include comments where necessary to explain complex logic.
+5. **Testing**
+   - Test your changes thoroughly before submitting the PR.
+   - If applicable, include unit tests or integration tests to verify your changes.
+6. **Documentation**
+   - Update or add documentation as needed to reflect your changes.
+7. **Commit Messages**
+   - Use clear and descriptive commit messages that follow the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) format.
+8. **Check for Conflicts**
+   - Before submitting your PR, ensure that your branch is up to date with the base branch to minimize merge conflicts.
+
+## For Reviewers
+
+- You are supposed to review PRs thoroughly, and request changes if needed.
+- Provide constructive feedback and suggestions for improvement.
+- Verify that the changes meet the project's coding standards and best practices.
+- Deploy the PR using the dokploy integration to ensure the changes work as expected.
+- Ensure that documentation is updated as necessary.
+- Approve the PR only when you are satisfied with the changes and all checks have passed.

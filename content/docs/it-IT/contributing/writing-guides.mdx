@@ -1,0 +1,87 @@
+---
+title: Guida alla scrittura
+---
+
+## Creare un file guida
+
+Per iniziare a scrivere una guida, è necessario creare un file con estensione `.mdx`. Devi creare questo file all'interno della directory `/content/docs/en`, ora dipende per quale sezione si desidera scrivere la guida, in modo da poter decidere in quale cartella si dovrebbe mettere il file.
+
+Supponiamo di voler fare una guida base su Java, andrebbe inserito in `/content/docs/en/guides/java-basics`. Dovrai scavare un po' (ndr tra le cartelle) per scoprire dove andrà posizionato il file.
+
+<Callout>
+  Se c'è già una guida nella sezione in cui si desidera scrivere, puoi semplicemente premere il pulsante "Modifica su GitHub" sul nostro sito web e ti porterà nella cartella. Ora è possibile scrivere nella stessa cartella per far apparire la guida nella stessa sezione.
+</Callout>
+
+## Prefazione
+
+Frontmatter sono i metadati della tua guida, dice al nostro sito web come visualizzare la tua guida. Questo deve essere nella parte superiore del file, che inizia con `---` e termina con `---`.
+
+Ecco un esempio:
+
+```mdx
+---
+title: "Java Base"
+description: "Impara le basi della programmazione Java."
+authors:
+    - name: "Il tuo nome"
+      url: "https://iltuositointernet.it"
+---
+```
+
+Ora, come potete vedere, è piuttosto autoesplicativo, è sufficiente compilare i dettagli per la vostra guida specifica. Se non si dispone di un URL a cui si desidera collegarsi basta non scrivere tutta la linea. Inoltre, la sezione authors è opzionale, quindi se non vuoi aggiungerla, puoi semplicemente non scriverla, anche se ti incoraggiamo a farlo e accreditarti.
+
+L'indentazione in frontmatter è importante, quindi assicurati di mantenerla coerente con l'esempio.
+
+## Struttura Contenuti
+
+Dovresti strutturare il contenuto della tua guida in modo chiaro e organizzato. Ecco alcuni suggerimenti su come farlo:
+
+- **Introduzione:** Inizia con una panoramica dell'argomento e cosa il lettore può aspettarsi d'imparare
+- **Prerequisiti:** Elenca i prerequisiti o le conoscenze preliminari che il lettore dovrebbe avere prima di immergersi nella guida.
+- **Istruzioni passo-passo:** Rompere il contenuto in passaggi chiari e praticabili. Utilizzare intestazioni e sottotitoli per organizzare le informazioni.
+- **Esempi di codice:** Includi frammenti di codice (snippet) per illustrare i punti chiave. Assicurarsi di spiegare accuratamente ogni esempio.
+- **Conclusione:** Riepilogare i punti principali e incoraggiare il lettore a esplorare ulteriormente o provare quello che ha imparato.
+
+Ora se stai scrivendo una sezione davvero grande, dovresti dividere questo contenuto in più pagine in modo che sia più facile per il lettore digerire le informazioni. Nessuno vuole leggere un muro di testo gigante tutto in una volta!
+
+Quando scriviamo guide, dovremmo anche pensare a come le persone le useranno, e molti preferiscono scorrere il contenuto piuttosto che leggerlo in dettaglio.
+Ecco perché è meglio suddividere le informazioni su più pagine, così sembra una quantità minore d'informazioni al lettore. Inoltre, prendete in considerazione l'utilizzo di liste puntate, liste numerate e altre tecniche di formattazione per rendere il contenuto più scansionabile.
+
+## Formattazione
+
+Usiamo [Markdown](https://www.markdownguide.org/) per la formattazione delle nostre guide. Ecco alcuni punti chiave da tenere a mente:
+
+- Usa le intestazioni (`#`, `##`, `###`) per organizzare i tuoi contenuti.
+- Utilizzate le liste puntate e gli elenchi numerati per aumentare la chiarezza.
+- Usa blocchi di codice (\`\`\`) per gli snippet di codice.
+- Utilizzare link per fare riferimento ad altre guide o risorse esterne.
+
+Questo è lo stesso tipo di formattazione che vedrete sulla maggior parte dei siti web di documentazione, e anche piattaforme di social media come Discord.
+
+È anche possibile inserire un Callout per evidenziare informazioni importanti o suggerimenti. Usa la seguente sintassi:
+
+```mdx
+<Callout>
+    Questo è un messaggio in callout.
+</Callout>
+```
+
+<Callout>
+  Questo è un messaggio in callout.
+</Callout>
+
+Puoi cambiare il colore della callout aggiungendo un attributo `type`. Ad esempio:
+
+```mdx
+<Callout type="info">
+    Questa è una callout informativa.
+</Callout>
+```
+
+I tipi disponibili sono: `info`, `warning`, `error` e `success`.
+
+## Conclusione
+
+È tutto! Ora sei un maestro nella scrittura di guide. Ricordati, non pensare di dover essere perfett\* con il vostro inglese, scrivere la guida nel modo in cui spiegheresti lo stesso argomento a qualcuno, e non esitare a chiedere feedback o aiuto se ne hai bisogno.
+
+Buona scrittura!

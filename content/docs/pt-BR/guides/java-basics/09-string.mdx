@@ -1,13 +1,13 @@
 ---
 title: 09 — Trabalhando com Cadeias
-description: Master text manipulation and string operations in Java.
+description: Domine operações de manipulação de texto e string em Java.
 ---
 
-Strings are one of the most commonly used types in Java. They're essential for handling player names, chat messages, item descriptions, and like everything you see.
+Strings são um dos tipos mais comumente usados em Java. São essenciais para lidar com nomes de jogadores, mensagens de bate-papo, descrições de itens e com tudo o que você vê.
 
-## String Basics
+## Noções básicas de string
 
-Strings are objects that store text:
+Strings são objetos que armazenam texto:
 
 ```java
 String name = "Simon";
@@ -16,7 +16,7 @@ String empty = "";
 ```
 
 <Callout type="warning" title="Strings são imutáveis">
-  Once created, a String **cannot be changed**. Methods that seem to modify a string actually create a new one!
+  Uma vez criada, uma String **não pode ser alterada**. Métodos que parecem modificar uma string realmente criam uma nova!
 
   ```java
   String text = "Olá";
@@ -38,7 +38,7 @@ int length = name.length();
 System.out.println(length);  // 5
 ```
 
-### Alteração da capitalização
+### Reverter uma Cadeia
 
 ```java
 String texto = "Olá, Mundo";
@@ -61,17 +61,17 @@ boolean ends = message.endsWith("Hytale");  // verdadeiro
 ### Extração das partes da string
 
 ```java
-String text = "Hello World";
+String text = "Olá Mundo";
 
-char first = text.charAt(0);      // 'H'
-char last = text.charAt(10);      // 'd'
+char first = text.charAt(0);      // 'O'
+char last = text.charAt(10);      // 'o'
 
-String sub1 = text.substring(0, 5);   // "Hello"
-String sub2 = text.substring(6);      // "World"
+String sub1 = text.substring(0, 5);   // "OIá"
+String sub2 = text.substring(6);      // "Mundo"
 ```
 
-<Callout type="info" title="Substring Indices">
-  `substring(start, end)` includes `start` but excludes `end`:
+<Callout type="info" title="Índices de Substring">
+  `substring(start, end)` inclue `start`, mas não `end`:
 
   ```java
   String text = "Hytale";
@@ -83,7 +83,7 @@ String sub2 = text.substring(6);      // "World"
   ```
 </Callout>
 
-### Replacing Text
+### Substituindo texto
 
 ```java
 String text = "Eu amo Minecraft";
@@ -94,7 +94,7 @@ String noSpaces = "Olá, Mundo".replace(" ", "");
 System.out.println(noSpaces);  // "Olá,Mundo" — sem o espaço entre as palavras
 ```
 
-### Trimming Whitespace
+### Retirando espaços vazios
 
 ```java
 String messy = "  Olá, Mundo  ";
@@ -102,7 +102,7 @@ String clean = messy.trim();
 System.out.println(clean);  // "Olá, Mundo" (sem espaços no final)
 ```
 
-### Splitting Strings
+### Dividindo cadeias
 
 ```java
 String command = "Dar jogador espada 5";
@@ -114,70 +114,70 @@ System.out.println(parts[2]);  // "espada"
 System.out.println(parts[3]);  // "5"
 ```
 
-## String Comparison
+## Comparação de strings
 
-<Callout type="warning" title="Never Use == for Strings">
-  Always use `.equals()` to compare string contents!
+<Callout type="warning" title="Nunca use `==` para strings">
+  Sempre use `.equals()` para comparar os conteúdos das strings!
 
   ```java
   String name1 = "Steve";
   String name2 = "Steve";
 
-  // Wrong - Compares object references
+  // Errado — Compara referências de objetos
   if (name1 == name2) {
-      System.out.println("Same");
+      System.out.println("Iguais");
   }
 
-  // Correct - Compares actual text
+  // Correto — Compara o texto real
   if (name1.equals(name2)) {
-      System.out.println("Same");
+      System.out.println("Iguais");
   }
 
-  // Ignore case when comparing
+  // Ignora letras maiúsculas e minúsculas ao comparar.
   if (name1.equalsIgnoreCase("steve")) {
-      System.out.println("Same (ignoring case)");
+      System.out.println("Iguais (ignorando a capitalização");
   }
   ```
 </Callout>
 
-### Comparing Order
+### Comparando a ordem
 
 ```java
-String a = "Apple";
+String a = "Maçã";
 String b = "Banana";
 
 int result = a.compareTo(b);
-// result < 0 if a comes before b
-// result == 0 if a equals b
-// result > 0 if a comes after b
+// resultado: < 0 se "a" vier antes de "b"
+// resultado: == 0 se "a" for igual a "b"
+// resultado: > 0 se "a" vier depois de "b"
 
 if (a.compareTo(b) < 0) {
-    System.out.println(a + " comes before " + b);
+    System.out.println(a + " vem antes de " + b);
 }
 ```
 
-## String Concatenation
+## Concatenação de string
 
-### Using + Operator
+### Usando o operador `+`
 
 ```java
-String first = "Hello";
-String second = "World";
-String combined = first + " " + second;  // "Hello World"
+String first = "Olá";
+String second = "Mundo";
+String combined = first + " " + second;  // "Olá Mundo"
 
 int score = 100;
-String message = "Score: " + score;  // "Score: 100"
+String message = "Pontuação: " + score;  // "Pontuação: 100"
 ```
 
-### Using concat()
+### Usando `.concat()`
 
 ```java
-String result = "Hello".concat(" World");  // "Hello World"
+String result = "Olá".concat(" Mundo");  // "Olá Mundo"
 ```
 
-### Building Long Strings
+### Construindo strings longas
 
-For many concatenations, use `StringBuilder`:
+Para muitas concatenações, use o `StringBuilder`:
 
 ```java
 StringBuilder builder = new StringBuilder();
@@ -190,28 +190,28 @@ builder.append(100);
 
 String result = builder.toString();
 System.out.println(result);
-// "Player: Alice, Level: 10, Health: 100"
+// "Jogador: Alice, Nível: 10, Vida: 100"
 ```
 
-<Callout type="info" title="Why StringBuilder?">
-  Regular concatenation creates many temporary strings:
+<Callout type="info" title="Por que StringBuilder?">
+  Concatenação regular cria muitas strings temporárias:
 
   ```java
-  // Inefficient - Creates many temporary strings
+  // Ineficiente - Cria muitas strings temporárias
   String result = "";
   for (int i = 0; i < 1000; i++) {
-      result = result + i;  // Creates 1000 temporary strings!
+      result = result + i;  // Cria 1000 strings temporárias!
   }
 
-  // Efficient - StringBuilder is mutable
+  // Eficiente - StringBuilder é mutável
   StringBuilder sb = new StringBuilder();
   for (int i = 0; i < 1000; i++) {
-      sb.append(i);  // Modifies one object
+      sb.append(i);  // Modifica um objeto
   }
   String result = sb.toString();
   ```
 
-  Use `StringBuilder` when building strings in loops!
+  Use `StringBuilder` ao montar strings em repetições!
 </Callout>
 
 ## Exemplos práticos
@@ -241,7 +241,7 @@ public class CommandParser {
 }
 ```
 
-### Format Player Display Name
+### Formatar Nome de Exibição do Jogador
 
 ```java
 public class PlayerFormatter {
@@ -268,12 +268,12 @@ public class PlayerFormatter {
 }
 ```
 
-### Validate Username
+### Validar Username
 
 ```java
 public class UsernameValidator {
     public static boolean isValid(String username) {
-        // Rules: 3-16 characters, letters and numbers only
+        // Regras: 3-16 caracteres, somente letras e números
         
         if (username == null || username.isEmpty()) {
             return false;
@@ -296,15 +296,15 @@ public class UsernameValidator {
     }
     
     public static void main(String[] args) {
-        System.out.println(isValid("Steve"));      // true
-        System.out.println(isValid("Player_123")); // false (has underscore)
-        System.out.println(isValid("ab"));         // false (too short)
-        System.out.println(isValid(""));           // false (empty)
+        System.out.println(isValid("Steve"));      // correto
+        System.out.println(isValid("Player_123")); // errado (possui sublinhado)
+        System.out.println(isValid("ab"));         // errado (muito curto)
+        System.out.println(isValid(""));           // errado (vazio)
     }
 }
 ```
 
-### Item Description Builder
+### Criador de Descrições de Itens
 
 ```java
 public class ItemDescription {
@@ -312,12 +312,12 @@ public class ItemDescription {
                                          int damage, int durability) {
         StringBuilder desc = new StringBuilder();
         
-        // Title with rarity color code
+        // Título com código de cor de raridade
         desc.append(getRarityColor(rarity));
         desc.append(name);
         desc.append("\n");
         
-        // Stats
+        // Status
         desc.append("Damage: ").append(damage).append("\n");
         desc.append("Durability: ").append(durability).append("/");
         desc.append(durability).append("\n");
@@ -328,11 +328,11 @@ public class ItemDescription {
     
     private static String getRarityColor(String rarity) {
         switch (rarity.toLowerCase()) {
-            case "legendary": return "§6";  // Gold
-            case "epic": return "§5";       // Purple
-            case "rare": return "§9";       // Blue
-            case "common": return "§f";     // White
-            default: return "§7";           // Gray
+            case "legendary": return "§6";  // Dourado
+            case "epic": return "§5";       // Roxo
+            case "rare": return "§9";       // Azul
+            case "common": return "§f";     // Branco
+            default: return "§7";           // Cinza
         }
     }
     
@@ -343,7 +343,7 @@ public class ItemDescription {
 }
 ```
 
-### Chat Message Filter
+### Filtro de Mensagens de Chat
 
 ```java
 public class ChatFilter {
@@ -370,7 +370,7 @@ public class ChatFilter {
 }
 ```
 
-## String Formatting
+## Formatação de String
 
 ### Usando String.format()
 
@@ -382,11 +382,11 @@ double health = 85.5;
 String formatted = String.format("%s is level %d with %.1f%% health", 
                                  name, level, health);
 System.out.println(formatted);
-// "Alice is level 10 with 85.5% health"
+// "Alice está no nível 10 com 85.5% de vida"
 ```
 
-<Callout type="info" title="Format Specifiers">
-  Common format codes:
+<Callout type="info" title="Especificadores de Formatação">
+  Códigos de formato comum:
 
   - `%s` — Cadeia
   - `%d` — Integer
@@ -395,27 +395,27 @@ System.out.println(formatted);
   - `%n` — Nova linha (independente da plataforma)
 
   ```java
-  String.format("Name: %s", "Steve");          // "Name: Steve"
-  String.format("Level: %d", 10);              // "Level: 10"
-  String.format("Health: %.1f", 85.5);         // "Health: 85.5"
+  String.format("Name: %s", "Steve");          // "Nome: Steve"
+  String.format("Level: %d", 10);              // "Nível: 10"
+  String.format("Health: %.1f", 85.5);         // "Vida: 85.5"
   String.format("Position: (%d, %d, %d)", 
-                10, 64, -5);                    // "Position: (10, 64, -5)"
+                10, 64, -5);                    // "Posição: (10, 64, -5)"
   ```
 </Callout>
 
-## Common String Operations
+## Operações Comuns de Strings
 
-### Check if String is Empty
+### Verificar se a string está vazia
 
 ```java
 String text = "";
 
-// Check for empty or null
+// Verificar se está vazio ou nulo
 if (text == null || text.isEmpty()) {
     System.out.println("Empty!");
 }
 
-// Check for empty, null, or whitespace only
+// Verificar apenas se há valores vazios, nulos ou espaços em branco
 if (text == null || text.trim().isEmpty()) {
     System.out.println("Empty or whitespace!");
 }
@@ -436,7 +436,7 @@ public static int countOccurrences(String text, String target) {
     return count;
 }
 
-// Usage
+// Uso
 int count = countOccurrences("hello hello world", "hello");
 System.out.println(count);  // 2
 ```
@@ -449,12 +449,12 @@ public static String reverse(String text) {
     return sb.reverse().toString();
 }
 
-// Usage
+// Uso
 String reversed = reverse("Hello");
 System.out.println(reversed);  // "olleH"
 ```
 
-### Check if Palindrome
+### Verifique se é um Palíndromo
 
 ```java
 public static boolean isPalindrome(String text) {
@@ -464,30 +464,30 @@ public static boolean isPalindrome(String text) {
 }
 
 // Usage
-System.out.println(isPalindrome("racecar"));     // true
-System.out.println(isPalindrome("hello"));       // false
+System.out.println(isPalindrome("racecar"));     // Correto
+System.out.println(isPalindrome("hello"));       // Errado
 ```
 
-## Practice Exercises
+## Exercícios Práticos
 
-1. **Username Checker**: Write a method that checks if a username:
-   - Is between 3 and 16 characters
-   - Contains only letters, numbers, and underscores
-   - Doesn't start with a number
-   - Returns true if valid, false otherwise
+1. **Verificador de Usuário**: Escreva um método que verifique se um nome de usuário:
+   - Deve ter entre 3 e 16 caracteres
+   - Conter apenas letras, números e sublinhados
+   - Não pode começar com um número
+   - Retorna _true_ se for válido, e _false_ se não for
 
-2. **Command Parser**: Parse this command format: `/teleport x y z`
-   - Extract the coordinates
-   - Convert them to integers
-   - Return an array of the three values
+2. **Command Parse**: Analisar este formato do comando: `/teleport x y z`
+   - Extrair as coordenadas
+   - Converter para números inteiros
+   - Retorna uma matriz de três valores
 
-3. **Chat Formatter**: Create a method that formats chat messages:
-   - Input: player name, rank, message
-   - Output: `"[RANK] PlayerName: message"`
-   - If no rank, just show `"PlayerName: message"`
+3. **Formatador de Chat**: Crie um método que formate as mensagens de chat:
+   - Input: nome do jogador, cargo, mensagem
+   - Output: `"[RANK] Nome do Jogador: mensagem"`
+   - Se não houver rank, apenas mostre `"Nome do Jogador: mensagem"`
 
-4. **Word Counter**: Count how many words are in a sentence (words are separated by spaces)
+4. **Contagem de Palavras**: Contar quantas palavras há em uma frase (as palavras são separadas por espaços)
 
-5. **Title Case**: Convert a string to title case:
+5. **Casos de Título**: Converter uma sequência de caracteres para maiúsculas e minúsculas:
    - Input: `"hello world"`
    - Output: `"Hello World"`

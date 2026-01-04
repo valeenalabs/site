@@ -455,36 +455,36 @@ public class Player {
 
 Una classe può definire due tipi di membri:
 
-* **Membri dell' istanza**  — appartengono al singolo oggetto (ogni istanza ne ha la propria copia)
+* **Membri dell'istanza**  — appartengono al singolo oggetto (ogni istanza ne ha la propria copia)
 
-* **Membri statici**  — appartengono alla classe (una singola copia condivisa per l' intero tipo)
+* **Membri statici**  — appartengono alla classe (una singola copia condivisa per l'intero tipo)
 
 In parole povere: i membri dell' istanza appartengono agli oggetti; i membri statici appartengono alla classe stessa e sono condivisi da tutti gli oggetti di quel tipo.
 
 #### Dichiarazione
 
 ```java
-    /* (access modifier) */ static ... memberName; 
+    /* (modificatore d'accesso) */ static ... memberName; 
 ```
 
 #### Esempio
 
 ```java
 class Data {
-    public int x; // Instanced member
-    public static int y = 1000; // Static member
+    public int x; // Membro istanziato
+    public static int y = 1000; // Membro statico
 
-    // Instanced member:
-    // can access to both static and non-static members
+    // Membro istanziato:
+    // può accedere sia a membri statici che non-statici
     public void foo() {
-        x = 100; // OK - same as this.x = 100;
-        y = 100; // OK - same as Data.y = 200;
+        x = 100; // OK - equivalente a this.x = 100;
+        y = 100; // OK - equivalente a Data.y = 200;
     }
 
-    // Static member:
-    // cannot access to non-static variables
+    // Membro statico:
+    // non può accedere a membri non statici
     public static void bar() {
-        x = 100; // Error: non-static variable x cannot be renference from a static context
+        x = 100; // Errore: la variable non statica x non può essere chiamata in un contesto statico
         y = 100; // OK
     }
 }
@@ -496,60 +496,60 @@ class Data {
 Data data = new Data();
 data.x = 1000; // OK
 
-data.y = 1000; // OK-ish - not really suggested; it's better to use Data.y
+data.y = 1000; // più o meno OK - Non proprio suggerito, è meglio usare Data.y
 Data.y = 1000; // OK - best practice
 
-Data.x = 1000; // Error: cannot access instanced variables in a static context
+Data.x = 1000; // Errore: non è possibile accedere alle variabili d'istanza in un contesto statico
 ```
 
-### Static Fields
+### Campi statici
 
-A static field represents a data member owned by the class type rather then the object. Static fields are also stored in a specific memory location that's been shared between all the object instances that are created.
+Uno campo statico o 'static field' rappresenta un dato di proprietà della classe piuttosto che dell'oggetto I campi statici sono anche memorizzati in una porzione di memoria specifica che viene condivisa tra tutte le istanze oggetto che vengono create.
 
-It is declared as following:
+Si dichiara come segue:
 
 ```java
-/* (access modifier) (optional) */ static /* final/volatile (optional) */ fieldName;
+/* (modificatore di accesso) (facoltativo) */ static /* final/volatile (facoltativo) */ nomeDelCampo;
 ```
 
-Let's take the same Data class example and add this constructor:
+Prendiamo lo stesso esempio di classe Data e aggiungiamo questo costruttore:
 
 ```java
 public Data() {
-    y++; // remember that's the same as Data.y++;
+    y++; // ricorda che questo equivale a: Data.y++;
 }
 ```
 
 ```java
-// Every instance of Data will have a private copy of the instanced member x
-// However it will point to the same location in memory for the member y
+// Ogni instanza di Data avrà una copia privata (istanziata) del membro x
+// Tuttavia punterà alla stessa posizione di memoria per il membro y
 Data d1 = new Data(); // y = 1001
 d1.x = 5;
 Data d2 = new Data(); // y = 1002
 d2.x = 25;
 Data d3 = new Data(); // y = 1003
-// ... and so on
+// ... e così via
 ```
 
-### Static Methods
+### Metodi statici
 
-Static methods essentially represent a function member of a certain class type
+I metodi statici rappresentano essenzialmente una funzione di un certa classe
 
-From the Data class remember the function (instanced method) `foo` and (static method) `bar`
+Dalla classe Data ricorda la funzione (metodo istantaneo) `foo` e (metodo statico) `bar`
 
-One can access those methods via:
+Si può accedere a tali metodi tramite:
 
 ```java
 Data d1 = new Data();
 
-d1.foo(); // Instanced method: Accessible ONLY by an object
+d1.foo(); // Metodo instanziato: Accessibile SOLO dall'oggetto istanziato
 
-Data.bar(); // Static method: accessible without an object
+Data.bar(); // Metodo statico: accessibile senza oggetto
 ```
 
-### Static Initializer
+### Inizializzatore Statico
 
-Use a *static initializer* block to run initialization logic when the class is first loaded:
+Usa un blocco *static initializer* per eseguire la logica d'inizializzazione quando la classe è caricata la prima volta:
 
 ```java
 class OtherData {
@@ -558,10 +558,10 @@ class OtherData {
     private static String msg;
 
     static {
-        msg = "Initialization..."
-        System.out.println(msg);
+        msg = "Inizializzazione..."
+        System.out. println(msg);
         b = 4;
-        // ... complex initialization that can't be done in a single expression
+        // ... inizializzazione complessa che non può essere fatta in una singola espressione
     }
 }
 ```

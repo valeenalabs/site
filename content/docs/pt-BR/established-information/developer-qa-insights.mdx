@@ -1,13 +1,13 @@
 ---
-title: Perguntas e Respostas Técnicas de Desenvolvedor
+title: Perguntas e respostas técnicas de desenvolvedor
 description: Resumo completo de dicas técnicas dos desenvolvedores de Hytale, cobrindo arquitetura, modificação, sistemas de gameplay e filosofia de desenvolvimento.
 ---
 
-# Perguntas e Respostas Técnicas de Desenvolvedor
+# Perguntas e respostas técnicas de desenvolvedor
 
 Esta extensa sessão de Perguntas e Respostas com os desenvolvedores de Hytale revela detalhes técnicos críticos sobre a arquitetura, filosofia de modificação, sistemas de jogabilidade e abordagem de desenvolvimento.
 
-## Arquitetura Técnica
+## Arquitetura técnica
 
 ### Rede e Infraestrutura
 
@@ -17,16 +17,16 @@ Esta extensa sessão de Perguntas e Respostas com os desenvolvedores de Hytale r
 * **Data Layer**: O formato de serialização personalizada atual será substituído pós-lançamento
 * **Desempenho**: Suporte a multi-core - cada mundo tema thread principal + execução paralela
 * **Renderização**: OpenGL 3.3 para compatibilidade com Mac, potencial migração  para Vulkan/Metal no futuro
-* **Tick Model**: Base server tick rate is 30 TPS by default; can be changed using server plugins.
+* **Modelo de Tick** A taxa base de tick é 30 por padrão; pode ser alterado usando plugins de servidor.
 
-### Segurança e Distribuição
+### Segurança e distribuição
 
 * **Sem Execução de Código no Client**: Impede exploits de execução de código remoto
 * **Downloads Limitados Para**: Apenas arquivos de configuração e de recursos (texturas/modelos)
 * **Distribuição de Mods**: Plataformas comunitárias (CurseForge, Modrinth), sem um mercado próprio no jogo inicialmente
 * **Hospedagem de Servidor**: Disponível no dia 1, não são necessários acordos de negócios (apenas EULA/TOS)
 
-## Capacidades de Modificações
+## Capacidades de modificações
 
 ### Poder do server-side
 
@@ -36,7 +36,7 @@ Esta extensa sessão de Perguntas e Respostas com os desenvolvedores de Hytale r
 * **Hot Reload**: Suportado para a maioria dos tipos de recursos (texturas/modelos)
 * **Documentação**:  GitBook público planejado, embora inicialmente seja escasso
 
-### Criação de Conteúdo (Sem Código necessário)
+### Criação de conteúdo (não requer código)
 
 * **Geração de Mundo**: biomas e mapas personalizados sem Java
 * **NPCs & Itens**: configuração baseada em JSON
@@ -52,7 +52,7 @@ Esta extensa sessão de Perguntas e Respostas com os desenvolvedores de Hytale r
 * **Interface Personalizada**: Transição do NoesisGUI permite poderosa personalização da interface
 * **Física dos blocos**: Sistema seletivo (árvores caem, mas blocos colocados não)
 
-## Sistemas de Jogabilidade
+## Sistemas de jogabilidade
 
 ### Mecânicas principais
 
@@ -62,7 +62,7 @@ Esta extensa sessão de Perguntas e Respostas com os desenvolvedores de Hytale r
 * **Altura do Mundo**: Atualmente limitado, pode mudar com atualizações de armazenamento voxel
 * **Automação**: Sem um equivalente da redstone no lançamento (pode ser feito por mods)
 
-### Sistemas do Jogador
+### Sistemas do jogador
 
 * **Modelos de personagem**: humanos por padrão, alteráveis no modo criativo
 * **Avatares multiplayer**: Controlado pelo servidor (sem modelos personalizados no multiplayer)
@@ -85,21 +85,21 @@ Esta extensa sessão de Perguntas e Respostas com os desenvolvedores de Hytale r
 * **Frequência de Atualização**: Atualizações muito frequentes planejadas, especialmente após o lançamento
 * **Política de Versão**: O client deve sempre usar a versão mais recente, mas os servidores podem executar versões modificadas
 
-### Foco na Comunidade
+### Foco na comunidade
 
 * **Suporte ao Criador**: Recompensas de Desenvolvimento planejadas para colaboradores da comunidade
 * **Tutoriais**: Tutoriais oficiais  de criação de mods planejados com parceiros
 * **Integração de Feedback**: Forte compromisso com melhorias conduzidas pela comunidade
 * **Acessibilidade**: Desenvolvido para equipamentos mais baratos, requisitos de sistema razoáveis
 
-### Ferramentas e Documentação
+### Ferramentas e documentação
 
 * **Integração Blockbench**: Substitui um "Criador de Modelos Hytale" personalizado
 * **Ferramentas de Machinima**: Recursos completos de criação cinemática
 * **Ferramentas Criativas**: Grande revelação dos recursos de construção/criação
 * **Acesso ao Código-Fonte**: O código do servidor não será ofuscado, e com comentários do desenvolvedor
 
-## Plataforma Suportada
+## Plataforma compatível
 
 * **Atual**: Windows (principal)
 * **Planejado**: suporte para Mac/Linux ativamente em desenvolvimento
@@ -107,14 +107,14 @@ Esta extensa sessão de Perguntas e Respostas com os desenvolvedores de Hytale r
 * **Desempenho**: Frames ilimitados, projetado para acessibilidade
 * **Jogo Offline**: Single-player funciona sem conexão com a internet
 
-## Monetização e Jurídico
+## Monetização e jurídico
 
 * **Sem Pay-to-Win**: compromisso firme contra a mecânica P2W
 * **Apenas cosméticos**: Pacotes cosméticos de preço baixo para oferecer suporte à infraestrutura
 * **EULA** do servidor: Termos sendo finalizados para as políticas de monetização do servidor
 * **Bloqueio QUIC**: Problema reconhecido em algumas regiões, sem protocolo alternativo
 
-## Limitações Atuais
+## Limitações
 
 * **Shaders Personalizados**: não suportado até a solução de sandbox ser encontrada
 * **UI/Limite de entradas**: Sendo expandido, mas atualmente restrito

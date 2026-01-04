@@ -3,57 +3,66 @@
   "nav": {
     "title": "Hytale Modding",
     "documentation": "Dökümantasyon",
-    "search": ""
+    "sponsors": "Sponsorlar",
+    "search": "Ara"
   },
   "home": {
-    "title": "Hytale Modlama {flipwords} için #1 kaynak",
+    "title": "Hytale Modlama için #1 kaynak {flipwords} ",
     "flipwords": [
-      "kılavuzları",
-      "Dökümantasyonları",
-      "Kaynakları",
-      "Tutorials"
+      "Kılavuzlar",
+      "Belgeleme",
+      "Araçlar",
+      "Öğreticiler"
     ],
     "description": "The number one community resource for modding Hytale, featuring comprehensive guides, detailed documentation, and essential tools to kickstart your modding journey.",
-    "documentation": "Dökümantasyon",
+    "documentation": "Belgeler",
     "forum": "Forum",
-    "discord": "Discord",
-    "memberCount": "{count} üye"
+    "discord": "Topluluğa Katıl!",
+    "memberCount": "{count} Üyeler"
+  },
+  "sponsors": {
+    "title": "Support Us",
+    "description": "HytaleModding is an open-source community project, and part of managing the community involves paying for services, servers and infrastructure, like hosting this website. If you would like to support the project, consider becoming a sponsor! We use OpenCollective so you can see how funds are being used to support the community.",
+    "ourSponsors": "Our Sponsors"
   },
   "misc": {
     "loading": "Yükleniyor...",
-    "gitInfoUnavailable": "Git bilgisi bulunamadı"
+    "failedToLoad": "Failed to load.",
+    "gitInfoUnavailable": "Git bilgisi bulunamadı",
+    "credit": "Yazan",
+    "supportUs": "Bizi Destekle"
   },
   "meta": {
     "established_information": {
-      "title": "Established Information",
-      "separator": "Specific Categories",
+      "title": "Yerleşik Bilgiler",
+      "separator": "Belirli Kategoriler",
       "server": {
-        "title": "Server",
+        "title": "Sunucu",
         "content_categories": {
-          "title": "Content Categories"
+          "title": "İçerik Kategorileri"
         },
         "interface": {
-          "title": "Interface"
+          "title": "Arayüz"
         }
       },
       "client": {
-        "title": "Client"
+        "title": "İstemci"
       },
       "gameplay": {
-        "title": "Gameplay"
+        "title": "Oynanış"
       },
       "misc": {
-        "title": "Miscellaneous"
+        "title": "Çeşitli"
       }
     },
     "guides": {
-      "title": "Guides",
+      "title": "Kılavuzlar",
       "java_basics": {
-        "title": "Java Basics"
+        "title": "Java Temelleri"
       }
     },
     "community_projects": {
-      "title": "Community Projects"
+      "title": "Topluluk Projeleri"
     }
   }
 }

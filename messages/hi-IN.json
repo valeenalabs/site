@@ -3,6 +3,7 @@
   "nav": {
     "title": "Hytale Modding",
     "documentation": "प्रलेखन",
+    "sponsors": "Sponsors",
     "search": "खोजें"
   },
   "home": {
@@ -19,9 +20,17 @@
     "discord": "कम्युनिटी में शामिल हों!\n",
     "memberCount": "{गिनती} सदस्य"
   },
+  "sponsors": {
+    "title": "Support Us",
+    "description": "HytaleModding is an open-source community project, and part of managing the community involves paying for services, servers and infrastructure, like hosting this website. If you would like to support the project, consider becoming a sponsor! We use OpenCollective so you can see how funds are being used to support the community.",
+    "ourSponsors": "Our Sponsors"
+  },
   "misc": {
     "loading": "लोड हो रहा है...",
-    "gitInfoUnavailable": "Git जानकारी उपलब्ध नहीं है"
+    "failedToLoad": "Failed to load.",
+    "gitInfoUnavailable": "Git जानकारी उपलब्ध नहीं है",
+    "credit": "Written by",
+    "supportUs": "Support Us"
   },
   "meta": {
     "established_information": {

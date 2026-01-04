@@ -1,0 +1,39 @@
+---
+title: PR Richtlinien
+description: Richtlinien, die Prüfer und Beitragende folgen sollten, wenn sie Pull Requests öffnen und überprüfen.
+---
+
+# Pull Request Richtlinien
+
+Um einen reibungslosen und effizienten Überprüfungsprozess zu gewährleisten, sollten sowohl Beitragende als auch Überprüfer die folgenden Richtlinien einhalten, wenn Pull-Requests geöffnet und überprüft werden.
+
+## Für Beitragende
+
+1. **Beschreibende Titel und Beschreibungen**
+   - Verwende klare und prägnante Title, die die Änderungen zusammenfassen.
+   - Gib detaillierte Beschreibungen darüber, was deine PR macht, warum die Änderungen notwendig sind und sonstigen relevanten Kontext.
+2. **Link zu Issues**
+   - Füge `GH-ISSUE-NUMBER` zu deinem Titel hinzu um auf das PR-relevante Issue zu verweisen. Dies ist für alle PRs erforderlich.
+3. **Kleine, fokussierte Änderungen**
+   - Ziel ist es, die PRs klein zu halten und sich auf ein einzelnes Problem oder Feature zu konzentrieren. Dies macht es für die Prüfer einfacher zu verstehen und Feedback zu geben.
+4. **Codequalität**
+   - Stelle sicher, dass dein Code den Projektstandards und Best Practices folgt.
+   - Füge gegebenenfalls Kommentare hinzu, um komplexere Logik zu erklären.
+5. **Testen**
+   - Teste deine Änderungen gründlich, bevor du eine PR einreichst.
+   - Falls zutreffend, füge Komponententests oder Integrationstests hinzu, um Änderungen zu überprüfen.
+6. **Dokumentation**
+   - Wenn nötig, aktualisiere oder füge Dokumentation hinzu, um deine Änderungen wiederzuspiegeln.
+7. **Commitnachrichten**
+   - Verwende klare und beschreibende Commitnachrichten, die dem [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) Format folgen.
+8. **Konflikte überprüfen**
+   - Bevor du deine PR einrichst, stelle sicher, dass deine Branch auf dem neuesten Stand der Basis-Branch ist um Merge-Konflikte zu minimieren.
+
+## Für Prüfer
+
+- Du sollst PRs gründlich überprüfen und gegebenenfalls Änderungen anfordern.
+- Gib konstruktives Feedback und Verbesserungsvorschläge.
+- Stelle sicher, dass die Änderungen den Codestandards und Best Practices folgen.
+- Stelle die PR mithilfe der Dokploy-Integration bereit, um sicherzustellen, dass die Änderungen wie erwartet funktionieren.
+- Stelle sicher, dass die Dokumentation bei Bedarf aktualisiert wurde.
+- Bestätige die PR nur, wenn du mit den Änderunge zufrieden bist und alle Tests funktioniert haben.

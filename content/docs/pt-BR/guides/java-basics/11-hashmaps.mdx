@@ -1,11 +1,11 @@
 ---
-title: 11 - HashMap and Key-Value Storage
-description: Learn to store and retrieve data using key-value pairs.
+title: 11 — HashMap e Armazenamento de Chaves-Valor
+description: Aprenda a armazenar e recuperar dados usando pares de chave-valor.
 ---
 
-A `HashMap` stores data in key-value pairs, like a real-world dictionary. You look up a word (key) to find its definition (value). This is perfect for player data, item properties, and configuration settings.
+Um `HashMap` armazena dados em pares de chave-valor, como um dicionário no mundo real. Você busca por uma palavra (chave) para encontrar a sua definição (valor). Isso é perfeito para dados de jogadores, propriedades de itens e configurações.
 
-## HashMap Basics
+## Primeiros passos com um HashMap
 
 ```java
 import java.util.HashMap;
@@ -28,24 +28,24 @@ public class Main {
 }
 ```
 
-<Callout type="info" title="HashMap vs ArrayList">
-  | **HashMap**                     | **ArrayList**                 |
-  | ------------------------------- | ----------------------------- |
-  | Unordered                       | Ordered by index (0, 1, 2...) |
-  | Access by key (can be any type) | Access by position            |
-  | Good for looking up values      | Good for lists of items       |
-  | Each key is unique              | Can have duplicates           |
+<Callout type="info" title="HashMap vs. ArrayList">
+  | **HashMap**                         | **ArrayList**                    |
+  | ----------------------------------- | -------------------------------- |
+  | Não ordenado                        | Ordenado por índice (0, 1, 2...) |
+  | Acesso por chave (de qualquer tipo) | Acesso por posição               |
+  | Bom para procurar valores           | Bom para listas de itens         |
+  | Cada chave é única                  | Pode haver duplicatas            |
 
   ```java
-  // ArrayList - access by number
+  // ArrayList - acesso por número
   ArrayList<String> players = new ArrayList<>();
   players.add("Alice");
-  String player = players.get(0);  // Get first player
+  String player = players.get(0);  // Obtém o primeiro jogador
 
-  // HashMap - access by name
+  // HashMap - acesso por nome
   HashMap<String, Integer> levels = new HashMap<>();
   levels.put("Alice", 10);
-  int level = levels.get("Alice");  // Get Alice's level
+  int level = levels.get("Alice");  // Obtém o nível de Alice
   ```
 </Callout>
 
@@ -58,7 +58,7 @@ HashMap<String, Integer> scores = new HashMap<>();
 
 scores.put("Alice", 100);     // Adiciona uma nova entrada
 scores.put("Bob", 150);
-scores.put("Alice", 200);     // Atualiza o existente (Alice agora tem 200)
+scores.put("Alice", 200);     // Atualiza a existente (Alice agora tem 200)
 ```
 
 ### Obtendo valores
@@ -68,9 +68,9 @@ HashMap<String, Integer> scores = new HashMap<>();
 scores.put("Alice", 100);
 
 int score = scores.get("Alice");        // 100
-Integer missing = scores.get("Dave");   // nulo (inexistente)
+Integer missing = scores.get("Dave");   // null (inexistente)
 
-// Obter com valor padrão
+// Obtém com o valor padrão
 int score2 = scores.getOrDefault("Dave", 0);  // 0 (retorna o valor padrão)
 ```
 
@@ -80,11 +80,11 @@ int score2 = scores.getOrDefault("Dave", 0);  // 0 (retorna o valor padrão)
 HashMap<String, Integer> scores = new HashMap<>();
 scores.put("Alice", 100);
 
-boolean hasAlice = scores.containsKey("Alice");    // verdadeiro
-boolean hasDave = scores.containsKey("Dave");      // falso
+boolean hasAlice = scores.containsKey("Alice");    // true
+boolean hasDave = scores.containsKey("Dave");      // false
 
-boolean has100 = scores.containsValue(100);        // verdadeiro
-boolean has200 = scores.containsValue(200);        // falso
+boolean has100 = scores.containsValue(100);        // true
+boolean has200 = scores.containsValue(200);        // false
 ```
 
 ### Removendo entradas
@@ -108,12 +108,12 @@ HashMap<String, Integer> scores = new HashMap<>();
 scores.put("Alice", 100);
 
 int size = scores.size();         // 1
-boolean empty = scores.isEmpty(); // falso
+boolean empty = scores.isEmpty(); // false
 ```
 
-## Looping Through HashMap
+## Repetição através de HashMaps
 
-### Loop Through Keys
+### Através de chaves
 
 ```java
 HashMap<String, Integer> scores = new HashMap<>();
@@ -127,7 +127,7 @@ for (String name : scores.keySet()) {
 // Saída: Alice, Bob, Charlie (a ordem pode mudar)
 ```
 
-### Loop Through Values
+### Através de valores
 
 ```java
 for (Integer score : scores.values()) {
@@ -136,7 +136,7 @@ for (Integer score : scores.values()) {
 // Saída: 100, 150, 75 (a ordem pode mudar)
 ```
 
-### Loop Through Both Keys and Values
+### Através de chaves e valores
 
 ```java
 for (String name : scores.keySet()) {
@@ -152,8 +152,8 @@ for (var entry : scores.entrySet()) {
 }
 ```
 
-<Callout type="info" title="HashMap Order">
-  HashMap does **not** maintain insertion order! If you need order, use `LinkedHashMap`:
+<Callout type="info" title="Ordem do HashMap">
+  Um HashMap **não** mantém a ordem de inserção! Se isso for necessário, use `LinkedHashMap`:
 
   ```java
   import java.util.LinkedHashMap;
@@ -227,7 +227,7 @@ public class Main {
 }
 ```
 
-### Item Properties Database
+### Banco de dados de propriedades de itens
 
 ```java
 import java.util.HashMap;
@@ -487,7 +487,7 @@ public class CooldownManager {
 
 ## HashMap com objetos personalizados
 
-Store your own classes as values:
+Armazene suas próprias classes como valores:
 
 ```java
 public class Player {
@@ -501,11 +501,11 @@ public class Player {
         this.health = 100;
     }
     
-    // Getters e setters...
+    // Obtentores e definidores...
     
     @Override
     public String toString() {
-        return name + " (Nv. " + level + ", PV: " + health + ")";
+        return name + " (Nível " + level + ", PV: " + health + ")";
     }
 }
 
@@ -516,22 +516,22 @@ public class Main {
         players.put("jogador 1", new Player("Alice", 10));
         players.put("jogador 2", new Player("Bob", 15));
         
-        // Get and use player
+        // Obtém e usa o jogador
         Player alice = players.get("jogador 1");
         System.out.println(alice);
     }
 }
 ```
 
-## HashMaps inseridas
+## HashMaps aninhadas
 
-HashMaps can contain other HashMaps:
+Hashmaps podem conter outros HashMaps:
 
 ```java
-// Armazene várias propriedades por jogador.
+// Armazene várias propriedades por jogador
 HashMap<String, HashMap<String, Integer>> playerData = new HashMap<>();
 
-// Adiciona jogador com estatísticas
+// Adiciona um jogador com estatísticas
 HashMap<String, Integer> aliceStats = new HashMap<>();
 aliceStats.put("nível", 10);
 aliceStats.put("vida", 100);
@@ -540,29 +540,29 @@ playerData.put("Alice", aliceStats);
 
 // Acessa os dados inseridos
 int aliceLevel = playerData.get("Alice").get("nível");
-System.out.println("Alice's level: " + aliceLevel);
+System.out.println("Nível de Alice: " + aliceLevel);
 ```
 
 ## Exercícios práticos
 
-1. **Phone Book**: Create a phone book that stores names and phone numbers. Add methods to:
-   - Add contact
-   - Find number by name
-   - Delete contact
-   - Display all contacts
+1. **Agenda telefônica**: Crie uma agenda telefônica que armazena nomes e números de telefone. Adicione métodos para:
+   - Adicionar um contato;
+   - Encontrar um número pelo nome;
+   - Apagar um contato;
+   - Exibir todos os contatos.
 
-2. **Grade Manager**: Store student names and grades. Create methods to:
-   - Add student with grade
-   - Atualizar grade
-   - Calculate class average
-   - Find highest grade
+2. **Gerenciador de notas**: Armazena os nomes e notas dos alunos. Crie métodos para:
+   - Adicionar um aluno com nota;
+   - Atualizar a nota;
+   - Calcular a média da classe;
+   - Encontrar a maior nota.
 
-3. **Word Counter**: Write a program that counts how many times each word appears in a sentence using a HashMap.
+3. **Contador de palavras**: Escreva um programa que conta quantas vezes uma palavra aparece numa frase usando um HashMap.
 
-4. **Item Shop**: Create a shop where items have names and prices. Add methods to:
-   - Add item with price
-   - Get item price
-   - Apply discount to all items
-   - Display all items and prices
+4. **Loja de itens**: Crie uma loja onde os itens possuem nomes e preços. Adicione métodos para:
+   - Adicionar um item com preço;
+   - Obter o preço de um item;
+   - Aplicar desconto a todos os itens;
+   - Exibir todos os itens e seus preços.
 
 ---

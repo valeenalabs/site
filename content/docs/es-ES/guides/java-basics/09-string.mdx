@@ -1,7 +1,6 @@
 ---
 title: 09 - Trabajando con cadenas
-description: |+
-  Domina la manipulación de texto y las operaciones con strings en Java.
+description: Domina la manipulación de texto y las operaciones con strings en Java.
 ---
 
 Los Strings son uno de los tipos de clase más usados en Java. Son fundamentales para gestionar nombres de jugador, mensajes de chat, descripciones de objetos y, prácticamente, todo lo que ves.
@@ -16,16 +15,16 @@ String message = "¡Bienvenido a Hytale!";
 String empty = "";
 ```
 
-<Callout type="warning" title="Strings are Immutable">
-  Once created, a String **cannot be changed**. Methods that seem to modify a string actually create a new one!
+<Callout type="aviso" title="Los Strings son Inmutables">
+  Una vez declarado un String **NO se puede alterar** ¡Los métodos que aparentan modificar un String realmente crean una nueva!
 
   ```java
-  String text = "Hello";
-  text.toUpperCase();           // Creates "HELLO" but doesn't save it
-  System.out.println(text);     // Still "Hello"
+  String text = "Hola";
+  text.toUpperCase();           // Crea "HOLA" pero no se guarda
+  System.out.println(text);     // Sigue teniendo el valor "Hola"
 
-  String upper = text.toUpperCase();  // ✓ Save the result
-  System.out.println(upper);          // "HELLO"
+  String upper = text.toUpperCase();  // ✓ Guarda el resultado
+  System.out.println(upper);          // "HOLA"
   ```
 </Callout>
 

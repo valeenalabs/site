@@ -1,0 +1,86 @@
+---
+title: Guias de Escrita
+---
+
+## Criando um arquivo guia
+
+Para começar a escrever um guia, você precisa criar um arquivo com extensão `.mdx`. Você precisa criar este arquivo no diretório `/content/docs/en`, agora depende de qual seção você quer fazer o guia, então você pode decidir em qual pasta você deve colocá-lo depois disso.
+
+Suponha que eu quero fazer um guia básico de java, eu colocaria em `/content/docs/en/guides/java-basics`. Será preciso vasculhar as pastas para decidir onde colocá-lo.
+
+<Callout>
+  Se já existir um guia na seção sobre a qual você quer escrever, basta clicar no botão ‘Edit on GitHub’ no nosso site. Ele vai levar você até a pasta correspondente, e então é só escrever nessa mesma pasta para que o seu guia apareça na mesma seção.
+</Callout>
+
+## Frontmatter
+
+Frontmatter é o metadado do seu guia, ele diz ao nosso site como exibi-lo. Isso precisa estar no topo do arquivo, que começa com `---` e termina com `---`.
+
+Aqui está um exemplo:
+
+```mdx
+---
+title: "Java Basics"
+description: "Learn the basics of Java programming."
+authors:
+    - name: "Your Name"
+      url: "https://yourwebsite.com"
+---
+```
+
+Como dá para ver, o processo é bem simples, basta preencher os detalhes do seu guia. Se você não tem um URL para a qual você quer vincular, apenas não escreva essa linha por completo. Além disso, a seção de autores é opcional, então se você não quiser adicioná-lo, Você pode simplesmente deixar de fora, apesar de nós encorajarmos você a fazê-lo e a se creditar.
+
+O recuo na frente é importante, por isso não deixe de ser coerente com o exemplo.
+
+## Estrutura do Conteúdo
+
+Você deve estruturar o conteúdo do seu guia de forma clara e organizada. Aqui estão algumas dicas sobre como fazer isso:
+
+- **Introdução:** Comece com uma visão geral do tópico e o que o leitor pode esperar aprender.
+- **Pré-requisitos:** Liste quaisquer pré-requisitos ou conhecimento prévio que o leitor deve ter antes de mergulhar no guia.
+- **Instruções passo a passo:** divida o conteúdo em etapas claras e objetivas. Use títulos e subtítulos para organizar as informações.
+- **Exemplos de código:** Inclua trechos de código para ilustrar os pontos-chave. Certifique-se de explicar cada exemplo completamente.
+- **Conclusão:** Resuma os pontos principais e encoraje o leitor a explorar mais longe ou testar o que eles aprenderam.
+
+Agora se você está escrevendo uma seção muito grande, você deve dividir isso em várias páginas para ser mais fácil para o leitor digerir as informações. Ninguém quer ler um paredão de texto de uma só vez!
+
+Quando escrevemos guias, também devemos pensar em como as pessoas vão consumi-los, e muitas pessoas preferem passar os olhos no conteúdo em vez de o ler em detalhes. É por isso que é melhor dividir a informação em várias páginas, pois assim ela se parece com uma quantidade menor para o leitor. Além disso, considere usar pontos chave, listas numeradas e outras técnicas de formatação para tornar o conteúdo mais amigável.
+
+## Formatando
+
+Usamos [Markdown](https://www.markdownguide.org/) para formatar nossos guias. Aqui estão dois pontos importantes que você deve ter em mente:
+
+- Use os cabeçalhos (`#`, `##`, `###`) para organizar o seu conteúdo.
+- Use pontos chave e listas numeradas para clareza.
+- Use os blocos de código (\`\`\`) para snippets.
+- Use links para referenciar outros guias ou recursos externos.
+
+Esse é o mesmo tipo de formatação que você verá na maioria dos sites de documentação e também nas plataformas de mídias sociais como o Discord.
+
+Você também pode fazer um Callout para destacar informações ou dicas importantes. Use a seguinte sintaxe:
+
+```mdx
+<Callout>
+    Esta é uma mensagem de callout.
+</Callout>
+```
+
+<Callout>
+  Esta é uma mensagem de callout.
+</Callout>
+
+Você pode alterar a cor do callout adicionando um atributo `type`. Por exemplo:
+
+```mdx
+<Callout type="info">
+    Este é um Callout informativo.
+</Callout>
+```
+
+Os tipos disponíveis são: `info`, `warning`, `error`, and `success`.
+
+## Conclusão
+
+Isso é tudo! Agora você é mestre em escrever guias. Apenas lembre-se, não acha que você precisa ser perfeito com o seu Inglês, escreva o guia da forma como você irá explicar o tema a alguém, e não hesite em pedir feedback ou ajuda se você precisar.
+
+Boa escrita!

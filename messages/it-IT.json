@@ -3,6 +3,7 @@
   "nav": {
     "title": "Hytale Modding",
     "documentation": "Documentazione",
+    "sponsors": "Sponsor",
     "search": "Cerca"
   },
   "home": {
@@ -19,9 +20,17 @@
     "discord": "Unisciti alla community!",
     "memberCount": "{count} Membri"
   },
+  "sponsors": {
+    "title": "Sostienici",
+    "description": "HytaleModding è un progetto comunitario e open-source, e parte della gestione della community comporta il pagamento di servizi, server e infrastrutture, come l'hosting per questo sito web. Se vuoi sostenere il progetto considera di diventare uno sponsor. Utilizziamo OpenCollective in modo da poter mostrare come i fondi sono utilizzati per supportare la community.",
+    "ourSponsors": "I Nostri Sponsor"
+  },
   "misc": {
     "loading": "Caricamento...",
-    "gitInfoUnavailable": "Informazioni di Git non disponibili"
+    "failedToLoad": "Caricamento fallito.",
+    "gitInfoUnavailable": "Informazioni di Git non disponibili",
+    "credit": "Scritto da",
+    "supportUs": "Sostienici"
   },
   "meta": {
     "established_information": {

@@ -1,0 +1,39 @@
+---
+title: Linee guida per le PR
+description: Linee guida che i revisori e i contributori dovrebbero seguire al momento di presentare e rivedere le pull request.
+---
+
+# Linee guida per le Pull Request
+
+Per garantire un processo di revisione agevole ed efficiente, sia i contributori che i revisori dovrebbero attenersi alle seguenti linee guida al momento della presentazione e della revisione delle Pull Request (PR).
+
+## Per i contributori
+
+1. **Titoli e descrizioni descrittivi**
+   - Utilizzare titoli chiari e concisi che riassumono le modifiche.
+   - Fornire descrizioni dettagliate di ciò che fa la PR, del motivo per cui le modifiche sono necessarie e di qualsiasi contesto pertinente.
+2. **Link alle issue**
+   - Nel titolo della PR, aggiungi `GH-ISSUE-NUMBER` per collegare la PR alla relativa issue. Questo è richiesto per tutte le PR.
+3. **Piccole Modifiche Focalizzate**
+   - Lo scopo è di mantenere le PR piccole e focalizzate su un singolo problema o funzionalità. Questo rende più facile per i revisori capirle e fornire feedback.
+4. **Qualità Del Codice**
+   - Assicurati che il tuo codice segua gli standard di codifica del progetto e le migliori pratiche di scrittura (best practices).
+   - Comprendere eventuali osservazioni per spiegare una logica complessa.
+5. **Test**
+   - Testate attentamente le modifiche prima di sottomettere una PR.
+   - Se è il caso includete test unitari o test d'integrazione per verificare le modifiche effettuate.
+6. **Documentazione**
+   - Aggiorna o aggiungi la documentazione secondo necessità per riflettere le modifiche apportate.
+7. **Messaggi Di Commit**
+   - Utilizzare messaggi di commit chiari e descrittivi che seguono il formato [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/).
+8. **Controlla i conflitti**
+   - Prima di sottomettere la tua PR, assicurati che il tuo branch sia aggiornato con il branch base per ridurre al minimo i conflitti durante il merge.
+
+## Per i revisori
+
+- Rivedere attentamente le PR, e richiedere modifiche se necessario.
+- Fornire feedback costruttivi e suggerimenti di miglioramento.
+- Verificare che le modifiche soddisfino gli standard di coding del progetto e le best pratices.
+- Distribuire la PR utilizzando l'integrazione dokploy per garantire che i cambiamenti funzionino come previsto.
+- Assicurarsi che la documentazione sia aggiornata secondo le necessità.
+- Approvare la PR solo quando si è soddisfatti delle modifiche e tutti i controlli sono stati superati.
