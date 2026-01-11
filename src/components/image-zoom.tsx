@@ -1,11 +1,11 @@
 "use client";
 
-import { Image, type ImageProps } from "fumadocs-core/framework";
+import Image from "next/image";
 import type { ComponentProps } from "react";
 import Zoom, { type UncontrolledProps } from "react-medium-image-zoom";
 import "../styles/image-zoom.css";
 
-export type ImageZoomProps = ImageProps & {
+export type ImageZoomProps = ComponentProps<typeof Image> & {
   /**
    * Image props when zoom in
    */
@@ -17,7 +17,7 @@ export type ImageZoomProps = ImageProps & {
   rmiz?: UncontrolledProps;
 };
 
-function getImageSrc(src: ImageProps["src"]): string {
+function getImageSrc(src: ComponentProps<typeof Image>["src"]): string {
   if (typeof src === "string") return src;
 
   if (typeof src === "object") {
@@ -53,6 +53,7 @@ export function ImageZoom({
         <Image
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 900px"
           {...props}
+          unoptimized
         />
       )}
     </Zoom>

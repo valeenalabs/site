@@ -5,6 +5,11 @@ import {
   metaSchema,
 } from "fumadocs-mdx/config";
 import { z } from "zod";
+import { enableImageFetchCache } from "./src/lib/image-cache";
+
+// Enable fetch caching for image processing during build
+// This prevents hitting the same image URL multiple times across translations
+await enableImageFetchCache();
 
 const extendedSchema = frontmatterSchema.extend({
   authors: z
