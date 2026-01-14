@@ -6,11 +6,13 @@ authors:
       link: "https://itsneil.dev"
 ---
 
-Creating a command is easy. You need to extend the `CommandBase` class.
+In this guide, you will learn how to create custom commands for your Hytale mod.
 
+## The `CommandBase` Class
 
-## Command Class
+To create a command, you can extend the `CommandBase` class. You need to provide a constructor that calls the superclass constructor with the command name, description, and whether the command requires confirmation (--confirm while running the command).
 
+You can override the `executeSync` function to implement the command's behavior. Here is an example of a simple command that sends a message to the command sender:
 
 ```java
 public class ExampleCommand extends CommandBase {
@@ -28,7 +30,7 @@ public class ExampleCommand extends CommandBase {
 
 ## Registering the Command
 
-To register your command, you need to add it to the command manager in your plugin's main class:
+For any command 
 
 ```java
 public class MyPlugin extends JavaPlugin {
