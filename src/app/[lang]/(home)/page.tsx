@@ -318,7 +318,7 @@ export default function HomePage() {
                 />
                 <Button className="relative w-115 bg-background hover:bg-background/85" variant={"secondary"} asChild>
                 <Link href={"https://hytalemodjam.com"}>
-                  We&apos;re hosting the first Hytale Modjam with 4000$ in prizes! <ArrowRightIcon className="h4 w-4" />
+                  We&apos;re hosting the first Hytale Modjam with $4,000 in prizes! <ArrowRightIcon className="h4 w-4" />
                 </Link>
                 </Button>
               </div>
