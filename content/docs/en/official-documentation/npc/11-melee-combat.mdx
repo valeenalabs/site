@@ -38,7 +38,7 @@ These swing interactions need to be created in the **HytaleAssets/Server/Item/In
 {
     "Type": "Simple",
     "Effects": {
-        "ItemPlayerAnimationsld": "Goblin_Club",
+        "ItemPlayerAnimationsId": "Goblin_Club",
         "ItemAnimationId": "SwingLeft"
     },
     "$Comment": "Prepare Delay",
@@ -56,7 +56,7 @@ These swing interactions need to be created in the **HytaleAssets/Server/Item/In
                 "ExtendBottom": 2,
                 "StartDistance": 0.1,
                 "EndDistance": 3.5,
-                "length": 60,
+                "Length": 60,
                 "RollOffset": 0,
                 "YawStartOffset": -30
             },
@@ -66,7 +66,7 @@ These swing interactions need to be created in the **HytaleAssets/Server/Item/In
                         "Parent": "DamageEntityParent",
                         "DamageCalculator": {
                             "BaseDamage": {
-                                "Physical": 3
+                                "Physical": 8
                             }
                         },
                         "DamageEffects": {
@@ -74,7 +74,7 @@ These swing interactions need to be created in the **HytaleAssets/Server/Item/In
                                 "Force": 0.5,
                                 "RelativeX": -5,
                                 "RelativeZ": -5,
-                                "Velocity": 5
+                                "VelocityY": 5
                             }
                         },
                         "WorldSoundEventId": "SFX_Unarmed_Impact",
@@ -88,7 +88,7 @@ These swing interactions need to be created in the **HytaleAssets/Server/Item/In
             }
         },
         {
-            "Type": "Sample",
+            "Type": "Simple",
             "$Comment": "Pad the interaction length",
             "RunTime": 0.1
         }
@@ -160,7 +160,7 @@ Let's start with chasing the target. We wrap that behavior in sub state **.Chase
             {
                 "Reference": "Component_Instruction_Soft_Leash",
                 "Modify": {
-                    "ExportStates": ["ReturnHome"],
+                    "_ExportStates": ["ReturnHome"],
                     "LeashDistance": { "Compute": "LeashDistance" },
                     "LeashMinPlayerDistance": { "Compute": "LeashMinPlayerDistance" },
                     "LeashTimer": { "Compute": "LeashTimer" },
@@ -170,7 +170,7 @@ Let's start with chasing the target. We wrap that behavior in sub state **.Chase
             {
                 "Reference": "Component_Instruction_Intelligent_Chase",
                 "Modify": {
-                    "ExportStates": ["Search", "Search", "ReturnHome"],
+                    "_ExportStates": ["Search", "Search", "ReturnHome"],
                     "ViewRange": { "Compute": "AlertedRange * 2" },
                     "HearingRange": { "Compute": "HearingRange * 2" },
                     "StopDistance": 0.1,
@@ -203,7 +203,7 @@ When the Target is within the **AttackDistance**, we perform the attack, otherwi
         "Instructions": [ ... ]
     },
     {
-        "Comment": "NPC melee attack",
+        "$Comment": "NPC melee attack",
         "Sensor": {
             "Type": "Target",
             "Range": { "Compute": "AttackDistance" },
@@ -277,7 +277,7 @@ Let's make sure we have all these parameters added in the list:
     "Description": "How long the NPC must be more than the minimum distance form the player and too far from leash before giving up."
 },
 "HardLeashDistance": {
-    "value": 60,
+    "Value": 60,
     "Description": "An absolute maximum from the the leash position the NPC can go before turning back."
 }
 
@@ -357,7 +357,7 @@ The Search state makes use of `Component_Sensor_Lost_Target_Detection`.
         "Sensor": {
             "Type": "Damage",
             "Combat": true,
-            "TargetSlot": "LockedTarget."
+            "TargetSlot": "LockedTarget"
         },
         "Actions": [
             {
@@ -411,7 +411,7 @@ The Search state makes use of `Component_Sensor_Lost_Target_Detection`.
                             "Time": [3, 6],
                             "Motion": {
                                 "Type": "Wander",
-                                "MaxHeading Change": 1,
+                                "MaxHeadingChange": 1,
                                 "RelativeSpeed": 0.5
                             }
                         },

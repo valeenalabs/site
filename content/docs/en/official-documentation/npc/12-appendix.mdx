@@ -54,7 +54,7 @@ authors:
             "Description": "View range in blocks"
         },
         "ViewSector": {
-            "value": 180,
+            "Value": 180,
             "Description": "View sector in degrees"
         },
         "HearingRange": {
@@ -70,8 +70,8 @@ authors:
             "Description": "A factor by which view range and hearing range will be divided when this NPC is distracted"
         },
         "AbsoluteDetectionRange": {
-            "value": 4,
-            "Description": "The range at which a target is guaranteed to be detected. If vero, absolute detection will be disabled."
+            "Value": 4,
+            "Description": "The range at which a target is guaranteed to be detected. If zero, absolute detection will be disabled."
         },
         "WarnGroups": {
             "Value": ["Goblin_Scrapper"],
@@ -94,7 +94,7 @@ authors:
             "Description": "The range for absolute minimum time before an NPC can execute a second attack (or block)."
         },
         "CombatRelativeTurnSpeed": {
-            "value": 1.5,
+            "Value": 1.5,
             "Description": "Modifier that decides turn speed difference in combat."
         },
         "LeashDistance": {
@@ -103,7 +103,7 @@ authors:
         },
         "LeashMinPlayerDistance": {
             "Value": 4,
-            "Description": "The minimum distance from the player before the NPC will be willing to give tip on the chase."
+            "Description": "The minimum distance from the player before the NPC will be willing to give up on the chase."
         },
         "LeashTimer": {
             "Value": [3, 5],
@@ -211,7 +211,7 @@ authors:
         {
             "States": {
                 "From": ["CallRat"],
-                "To": ["Ear"]
+                "To": ["Eat"]
             },
             "Actions": [
                 {
@@ -281,7 +281,7 @@ authors:
                     },
                     "Actions": [
                         {
-                            "Type": "inventory",
+                            "Type": "Inventory",
                             "Operation": "EquipHotbar",
                             "Slot": 0,
                             "UseTarget": false
@@ -291,7 +291,7 @@ authors:
                 {
                     "Reference": "Component_Instruction_Damage_Check",
                     "Modify": {
-                        "ExportStates": ["Alerted", "Alerted"],
+                        "_ExportStates": ["Alerted", "Alerted"],
                         "AlertedRange": { "Compute": "AlertedRange" }
                     }
                 },
@@ -401,7 +401,7 @@ authors:
                     }
                 },
                 {
-                    "$Comment": "Check for any hostile targets in range that could alert the NPO",
+                    "$Comment": "Check for any hostile targets in range that could alert the NPC",
                     "Sensor": {
                         "Reference": "Component_Sensor_Standard_Detection",
                         "Modify": {
@@ -423,7 +423,7 @@ authors:
                 {
                     "Reference": "Component_Instruction_Play_Animation_In_State_For_Duration",
                     "Modify": {
-                        "ExportStates": ["Idle.Default"],
+                        "_ExportStates": ["Idle.Default"],
                         "Animation": "Sleep",
                         "Duration": [5, 6]
                     }
@@ -438,7 +438,7 @@ authors:
                         {
                             "Type": "Attack",
                             "Attack": { "Compute": "SleepingAttack" },
-                            "Attack PauseRange": [1, 2]
+                            "AttackPauseRange": [1, 2]
                         }
                     ]
                 }
@@ -453,12 +453,12 @@ authors:
                 {
                     "Reference": "Component_Instruction_Damage_Check",
                     "Modify": {
-                        "ExportStates": ["Alerted", "Alerted"],
+                        "_ExportStates": ["Alerted", "Alerted"],
                         "AlertedRange": { "Compute": "AlertedRange" }
                     }
                 },
                 {
-                    "$Comment": "Check for any hostile targets in range that could alert the NPO",
+                    "$Comment": "Check for any hostile targets in range that could alert the NPC",
                     "Sensor": {
                         "Reference": "Component_Sensor_Standard_Detection",
                         "Modify": {
@@ -480,7 +480,7 @@ authors:
                 {
                     "Reference": "Component_Instruction_Play_Animation_In_State_For_Duration",
                     "Modify": {
-                        "_ExportStates": ["Idie.Default"],
+                        "_ExportStates": ["Idle.Default"],
                         "Animation": "Eat",
                         "Duration": [5, 6]
                     }
@@ -542,7 +542,7 @@ authors:
                             "Type": "NPCGroup",
                             "IncludeGroups": { "Compute": "FoodNPCGroups" }
                         },
-                        "Type": "LineofSight",
+                        "Type": "LineOfSight",
                         "HeadMotion": {
                             "Type": "Watch"
                         },
@@ -564,7 +564,7 @@ authors:
                                         },
                                         {
                                             "Type": "State",
-                                            "state": "Eat"
+                                            "State": "Eat"
                                         }
                                     ]
                                 }
@@ -581,7 +581,7 @@ authors:
                             "Type": "NPCGroup",
                             "IncludeGroups": { "Compute": "FoodNPCGroups" }
                         },
-                        "Type": "LineofSight",
+                        "Type": "LineOfSight",
                         "HeadMotion": {
                             "Type": "Watch"
                         }
@@ -590,7 +590,7 @@ authors:
                 {
                     "Reference": "Component_Instruction_State_Timeout",
                     "Modify": {
-                        "ExportStates": ["Idle"],
+                        "_ExportStates": ["Idle"],
                         "Delay": [10, 15]
                     }
                 }
@@ -672,19 +672,19 @@ authors:
                             }
                         },
                         {
-                            "Reference": "Component_Instruction_soft_Leash",
+                            "Reference": "Component_Instruction_Soft_Leash",
                             "Modify": {
-                                "ExportStates": ["ReturnHome"],
+                                "_ExportStates": ["ReturnHome"],
                                 "LeashDistance": { "Compute": "LeashDistance" },
                                 "LeashMinPlayerDistance": { "Compute": "LeashMinPlayerDistance" },
-                                "LeashTimer": { "Compute": "LeashTime" },
+                                "LeashTimer": { "Compute": "LeashTimer" },
                                 "HardLeashDistance": { "Compute": "HardLeashDistance" }
                             }
                         },
                         {
                             "Reference": "Component_Instruction_Intelligent_Chase",
                             "Modify": {
-                                "ExportStates": ["Search", "Search", "ReturnHome"],
+                                "_ExportStates": ["Search", "Search", "ReturnHome"],
                                 "ViewRange": { "Compute": "AlertedRange * 2" },
                                 "HearingRange": { "Compute": "HearingRange * 2" },
                                 "StopDistance": 0.1,

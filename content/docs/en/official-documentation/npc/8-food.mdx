@@ -167,14 +167,14 @@ This looks *awfully* familiar... Could this be something we want to do often in 
         },
         "Duration": {
             "Value": [3, 5],
-            "Description": "The amount of time to walt before transitioning"
+            "Description": "The amount of time to wait before transitioning"
         }
     },
     "Content": {
         "Continue": true,
         "Instructions": [
             {
-                "Reference": "Component_Instruction State_Timeout",
+                "Reference": "Component_Instruction_State_Timeout",
                 "Modify": {
                     "_ExportStates": ["Main"],
                     "Delay": { "Compute": "Duration" }
@@ -205,7 +205,7 @@ Now we need to apply it to both places in the ogre template.
     {
         "Reference": "Component_Instruction_Play_Animation_In_State_For_Duration",
         "Modify": {
-            "ExportStates": ["Idle.Default"],
+            "_ExportStates": ["Idle.Default"],
             "Animation": "Eat",
             "Duration": [15, 20]
         }
@@ -224,10 +224,12 @@ There's one last thing we need to do to make this ogre actually eat - take out t
 "StateTransitions": [
     ...
     {
-        "States": {
-            "From": ["Idle"],
-            "To": ["Eat"]
-        },
+        "States": [
+            {
+                "From": ["Idle"],
+                "To": ["Eat"]
+            }
+        ],
         "Actions": [
             {
                 "Type": "Inventory",
@@ -256,10 +258,12 @@ So this handles actually pulling out the food to eat it, but not putting it away
 
 ```json
 {
-    "States": {
-        "From": ["Eat"],
-        "To": []
-    },
+    "States": [
+        {
+            "From": ["Eat"],
+            "To": []
+        }
+    ],
     "Actions": [
         {
             "Type": "PlayAnimation",

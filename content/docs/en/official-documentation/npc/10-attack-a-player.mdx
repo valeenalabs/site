@@ -20,7 +20,7 @@ First we'll just create the empty **Alerted** state after the **CallRat** state 
     {
         "Reference": "Component_Instruction_State_Timeout",
         "Modify": {
-            "ExportStates": ["Idle"],
+            "_ExportStates": ["Idle"],
             "Delay": [10, 15]
         }
     }
@@ -75,7 +75,7 @@ In order to configure 'sight' and 'hearing' on the ogre, we also need to add a f
     },
     "AbsoluteDetectionRange": {
         "Value": 4,
-        "Description": "The range at which a target is guaranteed to be detected. If sure, absolute detection will be disabled."
+        "Description": "The range at which a target is guaranteed to be detected. If zero, absolute detection will be disabled."
     }
 }
 
@@ -93,7 +93,7 @@ Let's talk for a moment about how this works. The sensor has different checks:
 
 ```json
 {
-    "Comment": "Check for any hostile targets in range that could alert the NPC",
+    "$Comment": "Check for any hostile targets in range that could alert the NPC",
     "Sensor": {
         "Reference": "Component_Sensor_Standard_Detection",
         "Modify": {
@@ -245,10 +245,12 @@ And then implement the basic parts of the **Alerted** state, ending in a transit
 There's a fair bit of logic involved, but it's pretty straightforward. We play an animation, then we watch the target as long as there's line of sight to it. We then have a very short delay before switching to the **Combat** state. We'll handle actually sending the beacon message out to the other goblins using a state transition (and clear the animation at the same time).
 
 ```json
-"States": {
-    "From": [],
-    "To": ["Combat"]
-},
+"States": [
+    {
+        "From": [],
+        "To": ["Combat"]
+    }
+],
 "Actions": [
     {
         "Type": "PlayAnimation",

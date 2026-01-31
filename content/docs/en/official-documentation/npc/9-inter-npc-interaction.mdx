@@ -109,11 +109,11 @@ We'll call this `Template_Edible_Critter`.
         },
         "SeekRange": {
             "Value": 40,
-            "Description": "How far this HPC is allowed to be from the target that will eat"
+            "Description": "How far this NPC is allowed to be from the target that will eat"
         },
         "MaxHealth": {
             "Value": 100,
-            "Description": "Max health for the MPC"
+            "Description": "Max health for the NPC"
         },
         "NameTranslationKey": {
             "Value": "server.npcRoles.Template.name",
@@ -385,20 +385,24 @@ With this done, we can implement the **CallRat** state logic and test that it wo
         "Sensor": {
             "Type": "Mob",
             "Range": 5,
-            "Filters": {
-                "Type": "HPCGroup",
-                "IncludeGroups": { "Compute": "FoodNPCGroups" }
-            },
-            "Type": "LineOfSight",
-            "HeadMotion": {
-                "Type": "Watch"
-            }
+            "Filters": [
+                {
+                    "Type": "NPCGroup",
+                    "IncludeGroups": { "Compute": "FoodNPCGroups" }
+                },
+                {
+                    "Type": "LineOfSight"
+                }
+            ]
+        },
+        "HeadMotion": {
+            "Type": "Watch"
         }
     },
     {
         "Reference": "Component_Step_State_Timeout",
         "Modify": {
-            "ExportStates": ["Idle"],
+            "_ExportStates": ["Idle"],
             "Delay": [10, 15]
         }
     }
@@ -415,14 +419,12 @@ Now that it's working, let's implement the state transitions to make this goblin
 We need to define this in the parameters too.
 
 ```json
-"Parameters": [
-    {
-        "FoodNPCItem": {
-            "Value": "Food_Cheese",
-            "Description": "The edible NPC in Item form"
-        }
+"Parameters": {
+    "FoodNPCItem": {
+        "Value": "Food_Cheese",
+        "Description": "The edible NPC in item form"
     }
-]
+}
 
 ```
 
@@ -430,10 +432,12 @@ And then a single state transition from **CallRat** to **Eat**.
 
 ```json
 {
-    "States": {
-        "From": ["CallRat"],
-        "To": ["Eat"]
-    },
+    "States": [
+        {
+            "From": ["CallRat"],
+            "To": ["Eat"]
+        }
+    ],
     "Actions": [
         {
             "Type": "Inventory",

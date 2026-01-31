@@ -12,8 +12,8 @@ There are still a few more things we need to do before our ogre can get some res
 The most basic part is playing the sleep animation. We can use a convenient component for this. Don't forget to put back **"Continue":true**, because now we want to play the animation while the timeout runs.
 
 ```json
-[
-        "Sensor": {
+{
+    "Sensor": {
             "Type": "State",
             "State": "Sleep"
         },
@@ -35,10 +35,10 @@ The most basic part is playing the sleep animation. We can use a convenient comp
             {
                 "Reference": "Component_Instruction_Play_Animation",
                 "Modify": {
-                    "Animation": "sleep"
+                    "Animation": "Sleep"
                 }
             }
-]
+}
 
 ```
 
@@ -49,10 +49,12 @@ Almost! While our ogre will now happily go to sleep, it's a bit janky. We still 
 ```json
 "StateTransitions": [
     {
-        "States": {
-            "From": ["Idle"],
-            "To": ["Sleep"]
-        },
+        "States": [
+            {
+                "From": ["Idle"],
+                "To": ["Sleep"]
+            }
+        ],
         "Actions": [
             {
                 "Type": "PlayAnimation",
@@ -66,10 +68,12 @@ Almost! While our ogre will now happily go to sleep, it's a bit janky. We still 
         ]
     },
     {
-        "States": {
-            "From": ["Sleep"],
-            "To": []
-        },
+        "States": [
+            {
+                "From": ["Sleep"],
+                "To": []
+            }
+        ],
         "Actions": [
             {
                 "Type": "PlayAnimation",
