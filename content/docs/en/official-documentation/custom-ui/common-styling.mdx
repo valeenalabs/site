@@ -1,0 +1,36 @@
+---
+title: "Common Styling"
+---
+
+# Common Styling
+
+## Common UI Styling Library
+
+This document describes the shared UI components and styles defined in `Common.ui`.
+
+***
+
+### Styles
+
+We are providing some styles that can be re-used in any custom UI that, provide a cohesive UI experience with the core game UI. These styles are available in the `Common.ui` file.
+
+You can find a list of all the styles defined with live examples by running the `/ui-gallery` command ingame.
+
+<Callout type="warning">
+This command is not available yet, but will be in a future patch.
+</Callout>
+
+![Gallery](/assets/official-documentation/ui/gallery.png)
+
+### Importing
+
+To use these styles in your UI file:
+
+```
+$Common = "Common.ui";
+
+// Then reference styles and components:
+$Common.@TextButton { @Text = "My Button"; }
+$Common.@Container { ... }
+```
+
