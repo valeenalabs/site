@@ -5,6 +5,130 @@ icon: "List"
 full: true
 ---
 
+## ECS Events
+
+### Cancellable ECS Events
+Those events extend the CancellableEcsEvent class.
+
+| Event Name                   |
+|------------------------------|
+| BreakBlockEvent              |
+| ChangeGameModeEvent          |
+| CraftRecipeEvent             |
+| DamageBlockEvent             |
+| DropItemEvent                |
+| InteractivelyPickupItemEvent |
+| PlaceBlockEvent              |
+| SwitchActiveSlotEvent        |
+| ChunkSaveEvent               |
+| ChunkUnloadEvent             |
+
+### ECS Events
+Those events extend the EcsEvent class.
+
+| Event Name           |
+|----------------------|
+| DiscoverZoneEvent    |
+| UseBlockEvent        |
+| MoonPhaseChangeEvent |
+
+## World Events
+
+| Event Name               | Extends             | Implements        |
+|--------------------------|---------------------|-------------------|
+| ChunkSaveEvent           | CancellableEcsEvent | N/A               |
+| ChunkUnloadEvent         | CancellableEcsEvent | N/A               |
+| MoonPhaseChangeEvent     | EcsEvent            | N/A               |
+| AddWorldEvent            | WorldEvent          | ICancellable      |
+| AllWorldsLoadedEvent     | N/A                 | `IEvent<Void>`    |
+| ChunkEvent               | N/A                 | `IEvent<String> ` |
+| ChunkPreLoadProcessEvent | ChunkEvent          | IProcessedEvent   |
+| RemoveWorldEvent         | WorldEvent          | ICancellable      |
+| StartWorldEvent          | WorldEvent          | N/A               |
+| *WorldEvent* (abstract)  | N/A                 | `IEvent<String>`  |
+| AllNPCsLoadedEvent       | N/A                 | `IEvent<Void>`    |
+
+## Asset Editor Event
+
+| Event Name                              | Extends                     | Implements            |
+|-----------------------------------------|-----------------------------|-----------------------|
+| `EditorClientEvent<KeyType>` (abstract) | N/A                         | `IEvent<KeyType>`     |
+| AssetEditorActivateButtonEvent          | `EditorClientEvent<String>` | N/A                   |
+| AssetEitorAssetCreatedEvent             | `EditorClientEvent<String>` | N/A                   |
+| AssetEditorClientDisconnectEvent        | `EditorClientEvent<Void>`   | N/A                   |
+| AssetEditorFetchAutoCompleteDataEvent   | N/A                         | `IAsyncEvent<String>` |
+| AssetEditorRequestDataSetEvent          | N/A                         | `IAsyncEvent<String>` |
+| AssetEditorSelectAssetEvent             | `EditorClientEvent<Void>`   | N/A                   |
+| AssetEditorWeatherPreviewLockEvent      | `EditorClientEvent<Void>`   | N/A                   |
+
+## Asset Store Events
+
+| Event Name                                                                                                     | Extends                   | Implements         |
+|----------------------------------------------------------------------------------------------------------------|---------------------------|--------------------|
+| `AssetMonitorEvent<T>` (abstract)                                                                              | N/A                       | `IEvent<T>`        |
+| `AssetsEvent<K, T extends JsonAsset<K>>` (abstract)                                                            |                           | `IEvent<Class<T>>` | `
+| `AssetStoreEvent<KeyType` (abstract)                                                                           | N/A                       | `IEvent<KeyType>`  |
+| AssetStoreMonitorEvent                                                                                         | `AssetMontiorEvent<Void>` | N/A                |
+| `GenerateAssetsEvent<K, T extends JsonAssetWithMao<K, M>, M extends AssetMap<K, T>> extends AssetsEvent<K, T>` | IProcessedEvent           |                    |
+| `LoadedAssetsEvent<K, T extends JsonAsset<K>, M extends AssetMap<K, T>> extends AssetsEvent<K, T>              |                           |                    |
+| RegisterAssetStoreEvent                                                                                        | `AssetStoreEvent<Void>`   | N/A                |
+
+
+
+## Asset Events
+
+| Event Name              | Extends                   | Implements          |
+|-------------------------|---------------------------|---------------------|
+| CommonAssetMonitorEvent | `AssetMonitorEvent<Void>` | N/A                 |
+| SendCommonAssetsEvent   | N/A                       | `IAsyncEvent<Void>` |
+
+## Entity Events
+
+| Event Name                                     | Extends                            | Implements        |
+|------------------------------------------------|------------------------------------|-------------------|
+| EntityEvent                                    | EntityType extends Entity, KeyType | `IEvent<KeyType>` |
+| EntityRemoveEvent                              | `EntityEvent<Entity, String>       | N/A               |
+| LivingEntityInventoryChangeEvent               | `EntityEvent<LivingEntity, string> | N/A               |
+| ~~LivingEntityUseBlockEvent~~ (depreacated)    | N/A                                | `IEvent<String>`  |
+| *GroupPermissionChangeEvent* (abstract)        | N/A                                | `IEvent<Void>`    |
+| Added.GroupPermissionChangeEvent               | (subclass)                         | N/A               |
+| Removed.GroupPermissionChangeEvent             | (subclass)                         | N/A               |
+| PlayerGroupEvent                               | PlayerPermissionChangeEvent        | N/A               |
+| Added.PlayerGroupEvent                         | (subclass)                         | N/A               |
+| Removed.PlayerGroupEvent                       | (subclass)                         | N/A               |
+| *PlayerPermissionChangeEvent* (abstract)       | N/A                                | `IEvent<Void>`    |
+| PermissionsAdded.PlayerPermissionChangeEvent   | (subclass)                         | N/A               |
+| PermissionsRemoved.PlayerPermissionChangeEvent | (subclass)                         | N/A               |
+| GroupAdded.PlayerPermissionChangeEvent         | (subclass)                         | N/A               |
+| GroupRemoved.PlayerPermissionChangeEvent       | (subclass)                         | N/A               |
+
+## Player Events
+
+| Event Name                           | Extends                | Implements                          |
+|--------------------------------------|------------------------|-------------------------------------|
+| AddPlayerToWorldEvent                | N/A                    | `IEvent<String>`                    |
+| DrainPlayerFromWorldEvent            | N/A                    | `IEvent<String>`                    |
+| PlayerChatEvent                      | N/A                    | `IAsyncEvent<String, ICancellable>` |
+| PlayerConnectEvent                   | N/A                    | `IEvent<Void>`                      |
+| ~~PlayerCraftEvent~~ (deprecated)    | `PlayerEvent<String>`  | N/A                                 |
+| PlayerDisconnectEvent                | `PlayerRefEvent<Void>` | N/A                                 |
+| `PlayerEvent<KeyType>` (abstract)    | N/A                    | `IEvent<KeyType>`                   |
+| ~~PlayerInteractEvent~~ (deprecated) | `PlayerEvent<String> ` | ICancellable                        |
+| PlayerMouseButtonEvent               | `PlayerEvent<Void>`    | ICancellable                        |
+| PlayerMouseMotionEvent               | `PlayerEvent<Void>`    | ICancellable                        |
+| PlayerReadyEvent                     | `PlayerEvent<String>`  | N/A                                 |
+| `PlayerRefEvent<KeyType>`            | N/A                    | `IEvent<KeyType>`                   |
+| PlayerSetupConnectEvent              | N/A                    | `IEvent<Void>, ICancellable`        |
+| PlayerSetupDisconnectEvent           | N/A                    | `IEvent<Void>`                      |
+
+## Server Events
+
+| Event Name                            | Extends | Implements     |
+|---------------------------------------|---------|----------------|
+| BootEvent                             | N/A     | `IEvent<Void>` |
+| ~~PrepareUniverseEvent~~ (deprecated) | N/A     | `IEvent<Void>` |
+| ShutdownEvent                         | N/A     | `IEvent<Void>` |
+
 
 ## IEvent
 - AddPlayerToWorldEvent
